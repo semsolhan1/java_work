@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <table border="1">
+        <h1>테이블 실습</h1>
+        <caption>공연시간 / 요금정보</caption>
+       <tr> <!--7행 3열로 tr*7>td*3으로 입력해서 자동완성 해준다.-->
+        <td colspan="3">공연요금</td>
+        
+       </tr>
+       <tr>
+        <td>구분</td>
+        <td>S석</td>
+        <td>VIP</td>
+       </tr>
+       <tr>
+        <td>성인</td>
+        <td align="center">50,000원</td>
+        <td>70,000원</td>
+       </tr>
+       <tr>
+        <td>청소년</td>
+        <td align="center">40,000원</td>
+        <td>60,000원</td>
+       </tr>
+       <tr>
+        <td>소인</td>
+        <td colspan="2" align="center">미취학 아동 일반 요금의 50%</td>       
+       </tr>
+       <tr>
+        <td rowspan="2" align="center">공연시간</td>
+        <td>1회</td>
+        <td align="center">13:00시 - 15:00시</td>
+       </tr>
+       <tr>        
+        <td>2회</td>
+        <td align="center">17:00시 - 19:00시</td>
+       </tr>
+    </table>
+    
+</body>
+</html>

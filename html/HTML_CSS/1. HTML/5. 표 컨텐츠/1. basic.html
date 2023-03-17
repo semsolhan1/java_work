@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- table 태그는 표를 작성하는 태그입니다.-->
+    <table border="1">
+        <tr>
+            <!-- table의 자식태그 tr은 표의 행을 나타냅니다. 단독적으로 사용할수 없습니다.-->
+            <th>이름</th><!-- tr의 자식태그 td는 한 행에 들어갈 열(칸)을 나타냅니다.-->
+            <th>나이</th>
+            <th>성별</th>
+            <th>주소</th>
+            <td rowspan="4" align="center">
+                <!--세로 셀 병합: rowspan -> 병합하고 싶은 셀의 개수를 지정-->
+                <button>세로버튼</button>
+
+            </td>
+
+        </tr>
+        <tr>
+            <td>김철수</td>
+            <td>30</td>
+            <td>남자</td>
+            <td>서울</td>
+        </tr>
+        <tr>
+            <td>박영희</td>
+            <td>25</td>
+            <td>여자</td>
+            <td>경기도 안양시</td>
+        </tr>
+        <tr>
+            <!-- 가로 셀 병합: colspan -> 병합하고 싶은 셀의 개수를 지정-->
+            <td colspan="4" align="center">
+                <button>버튼입니다.</button>
+            </td>
+        </tr>
+
+
+    </table>
+
+
+</body>
+
+</html>

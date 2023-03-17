@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="#"><!--연도 월 일 선택할때 본 것-->
+        <select name="drink">
+            <optgroup label="Coffee">
+                <option value="ame">Americano</option>
+                <option value="esp" selected>Espresso</option>
+                <option value="cl">Caffe Latte</option>
+                <option value="capp">Cappuccino</option>
+            </optgroup>
+
+            <optgroup label="Non-Coffee">
+                <option value="orange">Orange Juice</option>
+                <option value="apple">Apple Juice</option>
+                <option value="grape">Grape Juice</option>
+            </optgroup>
+        </select>
+
+        <br><br><br>
+
+        <hr>
+
+        <input type="text" list="fruits"> <!--새로 추가된 기능(멋짐!!)-->
+
+        <datalist id="fruits">
+            <option>Apple</option>
+            <option>Banana</option>
+            <option>Orange</option>
+            <option>Grape</option>
+            <option>Mango</option>
+
+        </datalist>
+
+
+    </form>
+
+
+</body>
+</html>

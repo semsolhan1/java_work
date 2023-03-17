@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*직속자식만 가능 '>'*/
+        ul>.orange {
+            color: orange;
+        }
+
+        /*자식의 전달 안까지 안가도 됨*/
+        div>ul>li {
+            font-weight: bold;
+        }
+
+        /* 중간에 건너 뛰면 안된다. */
+        div>ul>ol {
+            color: yellow;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    
+    <h1>안녕안녕</h1>
+    <div>
+        <ul>
+            <li>사과
+                <ol>
+                    <li>1번째</li>
+                    <li>2번째</li>
+                    <li>3번째</li>
+                </ol>
+            </li>
+            <li class="orange">오렌지</li>
+            <li>딸기
+                <ol>
+                    <li>1번째</li>
+                    <li>2번째</li>
+                    <li>3번째</li>
+                </ol>
+
+            </li>
+        </ul>
+    </div>
+    <div>당근</div>
+    <p>토마토</p>
+    <span class="orange">오렌지</span>
+</body>
+
+</html>

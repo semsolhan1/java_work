@@ -1,0 +1,7 @@
+
+@import "./sid.css";
+
+h1, p {
+    color: red;
+    background: orange;
+}

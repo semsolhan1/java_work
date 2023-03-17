@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--사용자가 입력한 값들을 다른 곳으로 전달하기 위해서
+    form태그가 반드시 필요합니다.
+    action: 전송할 정보를 처리할 페이지의 URL-->
+    <form action="#" autocapitalize="off">
+        <!-- name을 통해 추후에 서버 내부에서 해당 입력값을 지목할 수 있다.-->
+        아이디: <input type="text" name="id" value="메롱메롱"><br>
+        비밀번호: <input type="password" name="pw" required><br>
+        
+        # 성별 <br><!-- radio는 단일 선택-->
+        <input type="radio" name="gender" value="male"> 남
+        <input type="radio" name="gender" value="female"> 여<br>
+
+        # 취미 <br>
+        <input type="checkbox" name="hobby" value="read"> 독서
+        <input type="checkbox" name="hobby" value="sleep"> 수면
+        <input type="checkbox" name="hobby" value="soccer"> 축구
+        <input type="checkbox" name="hobby" value="game"> 게임 <br>
+
+        # 자기소개 <br>
+        <textarea name="introduce" cols="30" rows="10"></textarea> <br>
+
+        <input type="email" name="mail" placeholder="이메일을 입력하세요."> <br>
+        <input type="number" name="age" min="1" max="200" placeholder="나이를 입력하세요."> <br>
+        <input type="range" min="0" max="10" step="1" value="3"><br>
+        <input type="file" name="upload"><br>
+
+        <input type="submit" value="회원가입">
+
+
+
+    </form>
+
+
+</body>
+
+</html>
