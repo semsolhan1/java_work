@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 550px;
+            height: 350px;
+            border: 2px solid gray;
+
+            /* background-color: yellow;
+            background-image: url(./images/sky.jpg); */
+
+            /* 원본사진의 사이즈로 표현
+            가로 비율에 맞춘다. 
+            %, px, em으로 지정이 가능
+            가로축과 새로축을 한번에 지정 가능
+            가로축만 사용하면 세로축은 가운데 정렬
+            % -> 왼쪽 상단 0% 0%, 오른쪽 하단이 100% 100%
+        */
+            /* background-size: 200px 100px;
+            background-repeat: no-repeat;
+            background-position: 100% 100%;
+            방향 -> top, bottom, left, right, center */
+
+            background: yellow url(./images/sky.jpg) no-repeat 0% 0% / cover;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    
+</body>
+</html>
