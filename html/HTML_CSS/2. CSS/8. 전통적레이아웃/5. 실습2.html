@@ -8,78 +8,106 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <style>
        section {
-        padding: 10px;
-        border: 3px solid #0a0606;
-        margin: 20px auto 0;
         width: 800px;
-        height: 600px;
-        background: gray;
+        border: 3px double #123456;
+        margin: 20px auto 0;
+        color: #333;
        }
-
-       h1 {
-        margin: 2px auto 0;
-        text-align: center;
-        font-weight: bold;
-        font-size: 24px;
-        font-family: serif;
-        background-color: rgb(211, 210, 210);
-        padding: 15px;
-       }
-
-       .intro {
-        padding: 5px;
-        text-align: center;
-        font-size: 19px;
-        font-family: serif;
-        background-color: black;
-        color: white;
-       }
-
        
-       em {
-           color: yellow;
-        }
-        
-        li > p {
-         margin: 40px 1% 0;
-         padding: 23.75%;
-         height: 500px;
-        }
-       .gallery {
-        margin: 0 0.5% 0;
+       section h1 {
+        font: bold 42px cursive, sans-serif;
+        background: #ccc;
+        text-align: center;
+        padding: 20px;
+       }
+
+       section .intro {
+        font-size: 18px;
+        background: #464141;
+        color: white;
+        border-bottom:  3px solid gray;
+        text-align: center;
+        padding: 10px;
+       }
+
+       section .intro em {
+        color: yellow;
+        font-size: 1.1em;
+
+       }
+
+       section .gallery {
+        background: #6e6a6a;
+        padding: 20px 0;
+       }
+
+       section .gallery li {
         width: 23.75%;
-        
+        height: 330px;
+        border: 1px solid #ccc;
+        padding: 5px;
+        box-sizing: border-box;
+        margin-right: 1%;
         float: left;
        }
 
-       .gallery #tulip {
-        background: url(./images/tulip.jpg) repeat top;
-        background-color: red;
+       .clearfix::after {
+        content: '';
+        display: block;
+        clear: both;
+       }
+
+       .gallery li h2 {
+        height: 150px;
+        border: 1px solid lightgray;
+        background: #fff;
+       }
+
+       .gallery li p {
+        margin-top: 20px;
+        padding: 0 10px;
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 1.3;
+        color: #000;
+       }
+
+       #tulip {
+        margin-left: 1%;
+        background: #d31515;
+       }
+
+       #tulip h2 {
+        background-image: url(./images/tulip.jpg);
+        background-size: cover;
+        background-position: 40%;
+       }
+
+       #jebi {
+        background: #e941f9;
+       }
+
+       #jebi h2 {
+        background: url(./images/jebi.jpg) no-repeat 50% / cover;
+       }
+
+       #hobak {
+        background: #fe692b;
+
         
-        height: 150px;
-
-        
        }
 
-       .gallery #jebi {
-        background: url(./images/jebi.jpg) repeat top / cover;
-        background-color: violet;
-        height: 150px;
+       #hobak h2 {
+        background: url(./images/hobak.jpg) no-repeat 40% / cover;
        }
 
-       .gallery #hobak {
-        background: url(./images/hobak.jpg) repeat top / cover;
-        background-color: brown;
-        height: 150px;
+       #sunflower {
+        background: #f3ea33;
        }
 
-       .gallery #sunflower {
-        background: url(./images/sunflower.jpg) repeat top / cover;
-        background-color: yellow;
-        height: 150px;
+       #sunflower h2 {
+        background: url(./images/sunflower.jpg) no-repeat 40% / cover;
        }
-
-
     </style>
 </head>
 <body>
@@ -89,7 +117,7 @@
             사람들은 아마 자신에게 <em>자신감을 북돋워 주는</em> 표정있는 꽃들을 선호할 것이다.
         </p>
 
-        <ul class="gallery">
+        <ul class="gallery clearfix">
             <li id="tulip">
                 <h2></h2> <!-- 각 h2에 background 속성 사용해서 url로 꽃 이미지 넣기 -->
                 <p>너무 화려하지 않으며 고귀한 느낌을 가지고 있다.

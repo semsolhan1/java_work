@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <style>
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 20px;
+            text-align: center;
+        }        
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            padding:  10px;
+        }
+        
+        p {
+            font-size: 14px;
+            line-height: 1.4;
+            padding: 10px;
+        }
+
+        .container {
+            border: 3px solid orange;
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            border: 3px solid yellow;
+
+        }
+
+        nav {
+            border: 3px solid purple;
+            width: 150px;
+            height: 200px;
+            float: left;
+        }
+
+        section {
+            width: 500px;
+            border: 3px solid green;
+            float: right;
+        }
+
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        footer {
+            border: 3px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>float 속성을 이용한 레이아웃</h1>
+
+    <div class="container">
+        <header>
+            <h2>header 영역</h2>
+        </header>
+        <div class="main-content clearfix">
+            <nav>
+                <h2>nav 영역</h2>
+            </nav>
+            <section>
+                <h2>섹션 역영</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rutrum diam urna, sit amet finibus
+                    est tristique sit amet. Cras sit amet ultrices elit. Aliquam malesuada, eros sit amet malesuada
+                    molestie, felis tellus aliquam lacus, euismod tempus ex magna quis neque. Cras nec ex purus. Orci
+                    varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec et massa
+                    augue. Nullam vel enim eget magna volutpat laoreet ut eget nisi. Praesent et consequat metus, non
+                    finibus elit. In vitae facilisis eros.
+                </p>
+            </section>
+        </div>
+        <footer>
+            <h2>footer 영역</h2>
+        </footer>
+    </div>
+
+</body>
+
+</html>
