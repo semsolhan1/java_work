@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .container {
+            width: 600px;
+            margin: 100px auto 0;
+        }
+
+        .container .box {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: tomato;
+            border: 4px dashed yellow;
+
+            font-size: 30px;
+            margin-right: -30px;
+            text-align: center;
+            line-height: 100px;
+            float: left;
+        }
+
+        .container .box:hover {
+            background: yellowgreen;
+            border-color: red;
+            z-index: 9999;
+
+            transition: 0.5s;
+            transform: translateY(-20px);
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="box box1">1</div>
+        <div class="box box2">2</div>
+        <div class="box box3">3</div>
+        <div class="box box4">4</div>
+        <div class="box box5">5</div>
+    </div>
+    
+</body>
+</html>

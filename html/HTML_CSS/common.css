@@ -1,0 +1,25 @@
+
+@import url('https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css');
+
+
+/* 
+공용 css 파일에 공통적으로 지정할 스타일을 모아놓고
+간단하게 링크를 통해서 불러올 수 있습니다. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 18px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
