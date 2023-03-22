@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div[class^=box] {
+            width: 200px;
+            height: 200px;
+            background: orange;
+            margin: 50px;
+            font-size: 30px;
+            text-align: center;
+            line-height: 200px;
+            transition: 2s;
+        }
+
+        .box1:hover {
+            transform: rotate(720deg);
+        }
+
+        .box2:hover {
+            /* transform: translate(100px, 100px); */
+            transform: translateY(100px);
+        }
+
+        .box3:hover {
+            transform: scale(0.7, 1.5);
+        }
+
+        .box4:hover {
+            transform: skew(0, 20deg);
+        }
+
+        .box5:hover {
+            transform: translate(30px, -20px) skew(20deg) scale(0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+    <div class="box4">4</div>
+    <div class="box5">5</div>
+</body>
+</html>

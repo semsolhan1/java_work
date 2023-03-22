@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media (min-width: 768px) {
+            .box1 {
+                border: 1px solid black;
+
+            }
+        }
+        @media (max-width: 767px) {
+            .box1 {
+                display: none;
+            }
+        }
+
+        .box2 {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* 1300px 이상에서는 이렇게 동작하라 */
+
+        @media (min-width: 1300px) {
+            .box2 .inner {
+                float: left;
+                width: 16.6666%;
+            }
+        }
+
+        @media (max-width: 1299px) {
+            .box2 .inner {
+                width: 25%;
+                float: left;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .box2 .inner {
+                width: 50%;
+                float: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        내용...
+    </div>
+    <div class="box2">
+        <div class="inner">내용</div>
+        <div class="inner">내용</div>
+        <div class="inner">내용</div>
+        <div class="inner">내용</div>
+        <div class="inner">내용</div>
+        <div class="inner">내용</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            border: 0;
+            vertical-align: top;
+        }
+
+        body {
+            font-size: 12px;
+            font-family: "맑은고딕", serif;
+        }
+
+        .wrap {
+            margin: 20px auto 0;
+            border: 1px solid #ddd;
+        }
+
+        section {
+            padding: 20px;
+
+        }
+
+        aside img:hover {
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+
+        footer {
+            padding: 10px 0;
+            line-height: 25px;
+            background: #222;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* ================================미디어================================ */
+        @media (min-width: 1024px) and (max-width:3000px) {
+            .wrap {
+                min-width: 960;
+            }
+
+            header {
+                height: 280px;
+                background-image: url(./img/bg.png);
+                background-size: cover;
+                background-position: center;
+            }
+
+
+            header h1 {
+                padding: 30px;
+                font-size: 4em;
+                color: #ff0;
+            }
+
+            nav {
+                background: #c13333;
+                height: 70px;
+            }
+
+            nav ul {
+                text-align: center;
+                line-height: 70px;
+            }
+
+            nav ul li {
+                display: inline-block;
+            }
+
+            nav ul li a {
+                display: block;
+                width: 120px;
+                line-height: 70px;
+                color: #fff;
+                font-size: 18px;
+            }
+
+            section {
+                min-width: 960px;
+                line-height: 25px;
+            }
+
+            section h2 {
+                font-size: 20px;
+            }
+
+            section h3 {
+                margin: 20px 0;
+            }
+
+            aside {
+                background: #eee;
+                text-align: center;
+                padding: 5px 0;
+
+            }
+
+            aside img {
+                width: 25%;
+                border: 1px solid #ccc;
+            }
+        }
+
+        @media (min-width: 600px) and (max-width: 1023px) {
+            .wrap {
+                min-width: 580px;
+            }
+
+            header {
+                height: 200px;
+                background-image: url(./img/bg.png);
+                background-size: cover;
+                background-position: center;
+
+            }
+
+            header h1 {
+                padding: 20px;
+                font-size: 3em;
+                color: #ff0;
+            }
+
+            nav {
+                background: #c13333;
+                height: 50px;
+            }
+
+            nav ul {
+                text-align: center;
+                line-height: 50px;
+            }
+
+            nav ul li {
+                display: inline-block;
+            }
+
+            nav ul li a {
+                display: block;
+                width: 90px;
+                line-height: 50px;
+                color: #fff;
+                font-size: 14px;
+            }
+
+            section {
+                min-width: 540px;
+                line-height: 25px;
+            }
+
+            section h2 {
+                font-size: 14px;
+            }
+
+            section h3 {
+                margin: 20px 0;
+            }
+
+            aside {
+                background: #eee;
+                text-align: center;
+                padding: 5px 0;
+
+            }
+
+            aside img {
+                width: 32%;
+                border: 1px solid #ccc;
+            }
+        }
+
+        @media (max-width: 599px) {
+
+            .wrap {
+                min-width: 320px;
+            }
+
+            header {
+                height: 100px;
+                background-image: url(./img/bg.png);
+                background-size: cover;
+                background-position: center;
+
+            }
+
+            header h1 {
+                padding: 15px;
+                font-size: 2em;
+                color: #ff0;
+            }
+
+            nav {
+                background: #c13333;
+
+            }
+
+            nav ul {
+                line-height: 30px;
+            }
+
+
+
+            nav ul li a {
+                display: block;
+                height: 40px;
+                line-height: 30px;
+                color: #fff;
+                font-size: 14px;
+                text-align: center;
+            }
+
+            section {
+                min-width: 320px;
+                line-height: 15px;
+            }
+
+            section h2 {
+                font-size: 14px;
+            }
+
+            section h3 {
+                margin: 20px 0;
+            }
+
+            aside {
+                background: #eee;
+                text-align: center;
+                padding: 5px 0;
+
+            }
+
+            aside img {
+                margin-bottom: 5px;
+                width: 95%;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <h1>반응형 웹(미디어)</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#">반응형 웹</a></li>
+                <li><a href="#">HTML5</a></li>
+                <li><a href="#">미디어쿼리</a></li>
+                <li><a href="#">적응하기</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h2>반응형 웹</h2>
+            <article>
+                <h3>웹 디자인 기법 중 하나. 웹 (web)에 접속하는 디바이스에 반응 (Responsive)하는 디자인을 말한다.</h3>
+                <p>
+                    반응형 웹 디자인은 유연한 레이아웃에 대응하여 항상 최적의 화면을 제공함으로써 다양한 스크린 사이즈를 지닌 디바이스에 적응하게 된다. 그리고 반응형 웹이 일반 웹 디자인과 다른 큰
+                    이유 중에 하나는 이 모든 기술이 하나의 소스로 구현 가능하다는 점이다. 보통 일반 웹 디자인의 경우에는 PC와 태블릿, 스마트폰의 브라우저 각각에 최적화시킨 소스를 개발하여 각
+                    디바이스 별로 산출물이 생기기 때문에 초기 제작비용뿐만 아니라 추후 유지보수 인력과 비용까지 추가로 발생하게 된다.
+
+                    요즘에는 다양한 스마트 기기가 계속해서 개발되고 있기 때문에 각각의 디바이스와 스크린 사이즈에 맞추어 사이트를 개발한다는 것은 거의 불가능에 가깝다고 볼 수 있다. 하지만 반응형
+                    웹은 하나의 소스를 수정하면 모든 스크린 사이즈에 맞추어 컨텐츠가 최적화되기 때문에 유지보수가 효율적이고, 사용자 입장에서도 기기에 구애받지 않고 항상 최적의 화면을 경험할 수
+                    있다는 측면에서 반응형 웹의 장점이 고스란히 나타나게 된다.
+
+                    반면 이러한 특징때문에 발생하는 단점이 있는데, 모바일 사이트에 비해서 무겁다는 점이다. 이는 사이트 속도와 직결되는 문제로, 사용자 입장에서는 특히 속도에 목숨을 거는 유저들에게
+                    있어서 불편하게 느낄수도있다. 반응형 웹 디자인은 모바일 사이트보다 읽어들이는 소스가 많아서 쓸데없는 데이터를 소비할 수도 있고, 더군다나 데스크톱 사이트와 모바일 사이트의 용도가
+                    다른 사이트의 경우 이러한 반응형 웹 디자인은 걸림돌이 될 수 있다. 이 때문에 서버 사이드 스크립트를 이용해 접속 기기에 따라 디자인을 선택적으로 적용하는
+                    RESS(Responsive Design + Server Side Components)라는 기법도 있다.
+                </p>
+            </article>
+        </section>
+        <aside>
+            <img src="./img/blog1.png" alt="1">
+            <img src="./img/blog2.png" alt="2">
+            <img src="./img/blog3.jpg" alt="3">
+        </aside>
+        <footer>
+            <p>HTML5 + CSS3 Responsive</p>
+            <address>
+                Responsive Wen Desogn
+            </address>
+        </footer>
+    </div>
+</body>
+
+</html>

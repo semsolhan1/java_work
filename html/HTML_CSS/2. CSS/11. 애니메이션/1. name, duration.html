@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: green;
+
+        }
+
+        .box:hover {
+           /*  animation-name: grow-up;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation-delay: 1s;
+            animation-direction: reverse; */
+            /* 이름 지속시간 [타이밍 함수 대기시간 반복횟수 반복방향] */
+            animation: grow-up 1s ease-in-out 1s infinite alternate;
+            
+        }
+
+
+
+        @keyframes grow-up {
+            0% {
+                width: 100px;
+            }
+            50%{
+                width: 500px;
+            }
+            100%{
+                width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
