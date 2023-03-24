@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            border: 4px solid #000;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: space-around;
+        }
+
+        /* space-between
+           : 첫번째 요소와 마지막 요소를 시작점과 끝점에 맞춘 후
+           나머지 item 사이에 공백을 균등하게 제공.
+           
+           spcae-around
+           : 요소를 둘러싼 공백을 생성.
+           첫번째 요소와 마지막 요소의 공백과 그렇지 않은 공백의
+           크기가 달라집니다.
+           
+           space-evenly
+           : 시작 , 끝 상관 없이 모든 요소에 동일한 공백을 생성.*/
+        .container.c2 {
+            justify-content: center;
+            /* space-between 시작과 끝에 디브의 요소를 놓고 공백을 균등 */
+        }
+
+        .item {
+            width: 150px;
+            height: 100px;
+            background: red;
+            border: 4px dashed orange;
+            border-radius: 10px;
+            font-size: 40px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
+    </div>
+
+    <div class="container c2">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
+    </div>
+
+
+
+</body>
+
+</html>
