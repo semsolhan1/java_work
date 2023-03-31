@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //자바에서는 에러지만 자바스크립트는 에러가 안남
+        //마지막에 선언된 것을 인식합니다.
+        //하지만 일부러 이렇게 쓰지는 마세요.
+        var apple = '사과';
+        var apple = '애플';
+        console.log(apple);
+
+        var banana = '바나나';
+        var BANANA = '빠나나';
+        console.log(banana);
+        console.log(BANANA);
+
+        // var 700 = 365; (x)
+        // var 7num = 7; (x)
+        var num7 = 7;
+        var n7u7m7 = 7;
+
+        // var my-name = '홍길동';(x)
+        var my_name = '홍길동';
+        var $my_name = '홍길동';
+
+        var myPhoneNumber = '01012345678'; //camel
+        var my_Phone_Number = '01012345678'; //snake
+        var MyPhoneNumber = '01012345678'; //pascal
+        var strMyPhoneNumber = '01012345678'; //hungarian
+
+        var 과일 = '사과';//추천하지는 않는다.
+        console.log(과일);
+
+        
+    </script>
+</body>
+</html>
