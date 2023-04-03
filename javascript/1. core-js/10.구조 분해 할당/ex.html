@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var x = 'global x';
+
+        function outer(x) {
+            var y = 'outer local y';
+            console.log(x);
+            console.log(y);
+            //console.log(z); //
+            function inner() {
+                var z = 'inner local z';
+                console.log(x);
+                console.log(y);
+                console.log(z);
+            }
+            inner();
+        }
+        outer('outer local x');
+        console.log(x);
+        // console.log(y); //참조 불가
+        // console.log(z); //참조불가
+    </script>
+</body>
+
+</html>
