@@ -28,15 +28,45 @@
     기억하기 <input type="checkbox" id="remember">
     <button id="check2">확인</button>
 <script>
-
+    /* const $button = document.querySelector('button');
     const $check = document.querySelectorAll('input');
-    console.log($check);
     document.addEventListener('click', e => {
-        if(e.target.checked) {
+        if(e.target.checked && e.target.value !== 'on') {
             alert(`동의하셨습니다.${e.target.value}`);
+            
+        } else {
+            $button.addEventListener('click', e => {
+                if(e.target) {
+                    console.log(e);
+                }
+            });
         }
-    });
-    
+    }); */
+    const $check = document.querySelectorAll('input[type="checkbox"]');
+
+    for(let $c of [...$check]) {
+        $c.addEventListener('change', e => {
+            if(e.target.checked) {
+                alert(`${e.target.value}번 항목에 동의하셨습니다.`);
+            }
+        });
+    }
+</script>
+<br>
+<script>
+    const $result = document.getElementById('id');
+    const $remember = document.getElementById('remember');
+
+    document.getElementById('check2').onclick = function(e) {
+        console.log($result.value);
+        console.log($remember.checked);
+
+        if($result.value === '') {
+            alert('아이디는 필수 값입니다.');
+        } else if(!$remember.checked){
+            alert('기억하기를 체크하지 않았습니다.');
+        }
+    }
 </script>
 </body>
 </html>

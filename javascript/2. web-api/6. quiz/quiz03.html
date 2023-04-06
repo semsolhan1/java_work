@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>단어를 선택하세요</h2>
+    <p class="msg"></p>
+
+    <hr>
+    
+    <select id="selector">
+        <option value="선택">선택</option>
+        <option value="영어">Hello</option>
+        <option value="한국어">안녕</option>
+        <option value="중국어">니하오</option>
+    </select>
+        <!-- 
+        사용자가 선택한 인삿말의 언어에 따라 메세지창에 어느나라
+        언어인지를 띄워주시면 되겠습니다. (change -> 요소의 value가
+        무엇인지를 판단했습니다.)
+         -->
+
+    <script>
+
+        const $select = document.querySelector('select');
+        const $p = document.querySelector('.msg');
+//$select.onchange = function(e) {};
+        $select.addEventListener('change', e => {
+            //console.log($select);
+            //console.log($select.children);
+            // console.log(e.target);
+            /* 
+            for(let $opt of [...$select.children]) {
+                if($opt.selected) {
+                    if($opt.value === '영어') {
+                        $msg.textContent = '영어입니다.';
+                    } else if($opt.value === '한국어') {
+                        $msg.textContent = '한국어입니다.'
+                    }
+                }
+            }
+            */
+           console.log($select.value);
+           console.log('이벤트 발생됨!');
+            if(!$select.value.match('선택')){
+                $p.textContent = $select.value + ' 입니다.';
+            } else {
+                $p.textContent = '';
+            }
+            //선택된 옵션에 index값을 얻어오는 문법
+            // console.log($select.options.selectedIndex);
+
+            // const idx = $select.options.selectedIndex;
+            // if(idx === 1) {
+            //     $msg. textContent = '영어입니다.';
+            // } else if(idx === 2) {
+            //     $msg.textContent = '한국어입니다.';
+            // }
+
+            //select 요소 안에 선택된 option의 value를 바로 꺼내오는 법
+        }); 
+
+
+
+    </script>
+</body>
+</html>
