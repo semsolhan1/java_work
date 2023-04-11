@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일정관리 앱</title>
+
+    <!-- reset css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+
+    <!-- linear icons -->
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="./main.css">
+
+    <!-- js -->
+    <script src="todo.js" defer></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="todolist-box">
+            <section class="header">
+                <div class="title">
+                    <h1>일정 관리</h1>
+                </div>
+                <div class="inputbox">
+                    <input type="text" id="todo-input" placeholder="할 일을 입력하세요.">
+                    <div>
+                        <span class="lnr lnr-plus-circle add"></span>
+                    </div>
+                </div>
+            </section>
+            <section class="todolist">
+                <ul id="copy">
+                    <li><input type="checkbox" class="check"></li>
+                    <li><input type="text" class="todo" value="" readonly></input></li>
+                    <li><span class="lnr lnr-undo modify"></span></li>
+                    <li><span class="lnr lnr-cross-circle delete"></span></li>
+                </ul>
+                <ul>
+                    <li><input type="checkbox" class="check"></li>
+                    <li><input type="text" class="todo" value="할 일1" readonly></li>
+                    <li><span class="lnr lnr-checkmark-circle confirm"></span></li>
+                    <li><span class="lnr lnr-cross-circle delete"></span></li>
+                </ul>
+                <ul>
+                    <li><input type="checkbox" class="check"></li>
+                    <li><input type="text" class="todo" value="할 일2" readonly></li>
+                    <li><span class="lnr lnr-undo modify"></span></li>
+                    <li><span class="lnr lnr-cross-circle delete"></span></li>
+                </ul>
+                <ul>
+                    <li><input type="checkbox" class="check"></li>
+                    <li><input type="text" class="todo" value="할 일3" readonly></li>
+                    <li><span class="lnr lnr-undo modify"></span></li>
+                    <li><span class="lnr lnr-cross-circle delete"></span></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

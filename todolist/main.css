@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    font-size: 18px;
+    background: #f6f6f6;
+    height: 100vh;
+    position: relative;
+}
+
+input {
+    font-size: inherit;
+    font-weight: inherit;
+    background: inherit;
+    border: none;
+    outline: none;
+    display: inline-block;
+}
+
+#copy {
+    display: none;
+}
+
+.wrapper .todolist-box {
+    width: 70%;
+    min-height: 40%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    overflow: auto;    
+}
+
+.wrapper .todolist-box .header {
+    width: 100%;
+    background: skyblue;
+}
+
+.wrapper .todolist-box .header .title {
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.wrapper .todolist-box .header .inputbox {
+    background: gray;
+    height: 30px;
+    outline: none;
+    display: flex;
+}
+
+#todo-input {
+    background: #3c3c3c;
+    width: 87%;
+    height: 100%;
+    border: 0;
+    color: white;
+    padding-left: 10px;   
+}
+
+.wrapper .todolist-box .header .inputbox div {
+    width: 13%;
+    display: flex;
+    justify-content: center;    
+    align-items: center;    
+}
+
+.lnr {
+    cursor: pointer;
+}
+
+.lnr-plus-circle {
+    color: white;    
+}
+
+.todolist{
+    width: 100%;
+}
+
+.todolist ul {
+    display: flex;
+    padding: 10px 5px 10px 10px;
+}
+
+.todolist ul:nth-child(odd) {
+    background: lightgrey;
+}
+
+.todolist ul li {
+}
+
+.todolist ul li:first-child {
+    width: 10%;
+}
+
+.todolist ul li:nth-child(2) {
+    width: 70%;
+    margin-left: 5%;
+    font-size: 15px;
+}
+
+.todolist ul li:nth-child(3) {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: green;
+}
+
+.todolist ul li:last-child {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+}
+
+
+/* 삭제 모션 */
+.delMoving {
+    animation: delMove 1.5s ease-in-out;
+}
+@keyframes delMove {
+    0% {
+        background: orange;
+        transform: translateX(20px);
+    }
+    50% {
+        background: orangered;
+        transform: translateX(-500px);
+    } 
+    100% {
+        background: red;
+        transform: translateX(-2000px);
+    }
+}

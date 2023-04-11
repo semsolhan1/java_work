@@ -1,0 +1,16 @@
+
+body {
+    width: 100vh;
+}
+
+
+body .vs {
+    width: 50%;
+    height: 50%;
+    border: 1px solid #000;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+}
