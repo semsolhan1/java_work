@@ -90,9 +90,6 @@ input {
     background: lightgrey;
 }
 
-.todolist ul li {
-}
-
 .todolist ul li:first-child {
     width: 10%;
 }
