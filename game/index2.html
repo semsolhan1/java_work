@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보 게임</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        #result {
+            margin-top: 30px;
+            font-size: 24px;
+            font-weight: bold;
+
+        }
+
+        #buttons {
+            margin-top: 50px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+
+        #computer-choice,
+        #user-choice {
+            margin-top: 30px;
+            display: inline-block;
+        }
+
+        .choice-img {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            border: 5px solid #ddd;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: rainbow 0.3s infinite;
+        }
+
+        @keyframes rainbow {
+            33% {
+                background: url(./images/가위.png) no-repeat 0 0 / auto 150px;
+            }
+
+            66% {
+                background: url(./images/바위.png) no-repeat 0 0 / auto 150px;
+            }
+
+            99% {
+                background: url(./images/보.png) no-repeat 0 0 / auto 150px;
+            }
+
+        }
+
+        
+
+        /* @keyframes body1 {
+            20% {
+                background: url(./images/5.png) no-repeat 0 0 / auto 150px;
+            }
+            40% {
+                background: url(./images/4.png) no-repeat 0 0 / auto 150px;
+            }
+            60% {
+                background: url(./images/3.png) no-repeat 0 0 / auto 150px;
+            }
+            80% {
+                background: url(./images/2.png) no-repeat 0 0 / auto 150px;
+            }
+            100% {
+                background: url(./images/1.png) no-repeat 0 0 / auto 150px;
+            }
+        }
+
+        body.start {
+            animation: body1 5s infinite linear;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>가위바위보 게임</h1>
+        </header>
+        <section class="progress">
+            <div id="computer-choice"></div>
+            <div id="user-choice"></div>
+            <div id="buttons">
+                <button id="scissors">가위</button>
+                <button id="rock">바위</button>
+                <button id="paper">보</button>
+            </div>
+        </section>
+        <section class="result hide">
+            <div id="result">
+                <div id="resultBtns">
+                    <button id="restart">다시하기</button>
+                    <button id="quit">그만하기</button>
+                    <div class="count-box">
+                        <div class="total"><span>현재 게임 횟수 : <em></em>회</span></div>
+                        <div class="win"><span>현재 승리 횟수 : <em></em>회</span></div>
+                        <div class="draw"><span>현재 비긴 횟수 : <em></em>회</span></div>
+                        <div class="defeat"><span>현재 패배 횟수 : <em></em>회</span></div>
+                    </div>
+                </div>
+        </section>
+        <section id="end" class="quitResult hide">
+            <div class="total-count-box">
+                <div class="total"><span>총 게임 횟수 : <em></em>회</span></div>
+                <div class="win"><span>총 승리 횟수 : <em></em>회</span></div>
+                <div class="draw"><span>총 비긴 횟수 : <em></em>회</span></div>
+                <div class="defeat"><span>총 패배 횟수 : <em></em>회</span></div>
+            </div>
+            <div class="end-result">
+                승리 or 패배
+            </div>
+        </section>
+    </div>
+    <script>
+        // 컴퓨터가 선택한 가위바위보
+        let computerChoice = Math.floor(Math.random() * 3);
+        let choices = ["바위", "가위", "보"];
+        let computer = choices[computerChoice];
+        const $com = document.querySelector('#result');
+
+
+
+
+        // 사용자가 선택한 가위바위보
+        let userChoice = "";
+        document.getElementById("rock").addEventListener("click", function () {
+            userChoice = "바위";
+            playGame();
+        });
+        document.getElementById("scissors").addEventListener("click", function () {
+            userChoice = "가위";
+            playGame();
+        });
+        document.getElementById("paper").addEventListener("click", function () {
+            userChoice = "보";
+            playGame();
+        });
+
+        // 게임 실행
+        function playGame() {
+            let result = "";
+            if (userChoice === computer) {
+                result = "비겼습니다.";
+            } else if (userChoice === "바위" && computer === "가위" || userChoice === "가위" && computer === "보" ||
+                userChoice === "보" && computer === "바위") {
+                result = "이겼습니다!";
+            } else {
+                result = "졌습니다...";
+            }
+            $com.style.opacity = 0;
+            $com.innerHTML = "컴퓨터: " + computer + "<br>사용자: " + userChoice + "<br>" + result;
+            document.getElementById("computer-choice").innerHTML =
+                "<div class='choice-img' style='background-image: url(images/" + computer + ".png)'></div>";
+            document.getElementById("user-choice").innerHTML =
+                "<div class='choice-img' style='background-image: url(images/" + userChoice + ".png)'></div>";
+
+            const $imgs = document.createElement('choice-img');
+            $imgs.classList.add('choice-imgs');
+        }
+    </script>
+</body>
+
+</html>

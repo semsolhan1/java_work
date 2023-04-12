@@ -35,8 +35,10 @@ FROM
     employees;
     
 -- NULL 값의 확인 (숫자 0이나 공백이랑은 다른 존재입니다.)
-SELECT department_id, commission_pct
-FROM employees;
+SELECT 
+    department_id, commission_pct
+FROM 
+    employees;
 
 --alias(컬럼명, 테이블명의 이름을 변경해서 조회합니다.
 SELECT
@@ -56,15 +58,23 @@ FROM employees;
 
 --DISTINCT (중복 행의 제거)
 
-SELECT department_id FROM employees;
-SELECT DISTINCT department_id FROM employees;
+SELECT 
+    department_id 
+FROM 
+employees;
+SELECT DISTINCT 
+    department_id 
+FROM 
+employees;
 
 --ROWNUM, ROWID
 --(**로우넘: 쿼리에 의해 반환되는 행 번호를 출력)
 --(로우아이디: 데이터베이스 내의 행의 주소를 반환
 
-SELECT ROWNUM, ROWID, employee_id
-FROM employees;
+SELECT ROWNUM, ROWID, 
+employee_id
+FROM 
+employees;
 
 SELECT
     salary,
