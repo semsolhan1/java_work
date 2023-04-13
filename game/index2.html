@@ -17,6 +17,11 @@
             display: none;
         }
 
+        .intro h1 {
+            font-size: 60px;
+            min-height: 240px;
+        }
+
         h1 {
             margin-top: 50px;
         }
@@ -63,6 +68,17 @@
             animation: rainbow 0.3s infinite;
         }
 
+        .choice-imgs {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            border: 5px solid #ddd;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
         @keyframes rainbow {
             33% {
                 background: url(./images/가위.png) no-repeat 0 0 / auto 150px;
@@ -78,7 +94,7 @@
 
         }
 
-        
+
 
         /* @keyframes body1 {
             20% {
@@ -110,8 +126,12 @@
             <h1>가위바위보 게임</h1>
         </header>
         <section class="progress">
-            <div id="computer-choice"></div>
-            <div id="user-choice"></div>
+            <div id="computer-choice">
+                <div class='choice-img' style=></div>
+            </div>
+            <div id="user-choice">
+                <div class='choice-img' style=></div>
+            </div>
             <div id="buttons">
                 <button id="scissors">가위</button>
                 <button id="rock">바위</button>
@@ -148,25 +168,47 @@
         let computerChoice = Math.floor(Math.random() * 3);
         let choices = ["바위", "가위", "보"];
         let computer = choices[computerChoice];
+        const $imgq = document.querySelectorAll('.choice-imgs');
+
+        // $imgq[0].setAttribute('style', `background-image: url(./images/${computer}.png);`);
+        // $imgq[1].setAttribute('style', `background-image: url(./images/${userChoice}.png);`);
+
         const $com = document.querySelector('#result');
 
-
+        // document.getElementById("computer-choice").innerHTML =
+        //     "<div class='choice-imgs' style='background-image: url(images/가위.png)'></div>";
 
 
         // 사용자가 선택한 가위바위보
         let userChoice = "";
-        document.getElementById("rock").addEventListener("click", function () {
+        document.getElementById("rock").addEventListener("click", function (e) {
+            document.getElementById("computer-choice").innerHTML =
+                "<div class='choice-imgs' style='background-image: url(images/" + computer + ".png)'></div>";
+            document.getElementById("user-choice").innerHTML =
+                "<div class='choice-imgs' style='background-image: url(images/" + userChoice + ".png)'></div>";
+
+            // $imgq.setAttribute('style', 'animation: ');
+
             userChoice = "바위";
             playGame();
         });
         document.getElementById("scissors").addEventListener("click", function () {
+            document.getElementById("computer-choice").innerHTML =
+                "<div class='choice-imgs' style='background-image: url(images/" + computer + ".png)'></div>";
+            document.getElementById("user-choice").innerHTML =
+                "<div class='choice-imgs' style='background-image: url(images/" + userChoice + ".png)'></div>";
             userChoice = "가위";
             playGame();
         });
         document.getElementById("paper").addEventListener("click", function () {
+            document.getElementById("computer-choice").innerHTML =
+                "<div class='choice-imgs' style='background-image: url(images/" + computer + ".png)'></div>";
+            document.getElementById("user-choice").innerHTML =
+                "<div class='choice-imgs' style='background-image: url(images/" + userChoice + ".png)'></div>";
             userChoice = "보";
             playGame();
         });
+
 
         // 게임 실행
         function playGame() {
@@ -181,13 +223,13 @@
             }
             $com.style.opacity = 0;
             $com.innerHTML = "컴퓨터: " + computer + "<br>사용자: " + userChoice + "<br>" + result;
-            document.getElementById("computer-choice").innerHTML =
-                "<div class='choice-img' style='background-image: url(images/" + computer + ".png)'></div>";
-            document.getElementById("user-choice").innerHTML =
-                "<div class='choice-img' style='background-image: url(images/" + userChoice + ".png)'></div>";
+            // document.getElementById("computer-choice").innerHTML =
+            //     "<div class='choice-img' style='background-image: url(images/" + computer + ".png)'></div>";
+            // document.getElementById("user-choice").innerHTML =
+            //     "<div class='choice-img' style='background-image: url(images/" + userChoice + ".png)'></div>";
 
-            const $imgs = document.createElement('choice-img');
-            $imgs.classList.add('choice-imgs');
+            // const $imgs = document.createElement('choice-img');
+            // $imgs.classList.add('choice-imgs');
         }
     </script>
 </body>

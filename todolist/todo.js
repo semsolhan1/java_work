@@ -13,7 +13,7 @@ $box.addEventListener('click', e => {
     if(e.target.matches('.add')) {
         // console.log('add 클릭!');
         console.log($todoInput.value);
-        addTodoList($todoInput.value);
+        addTodoList($todoInput.value, e.target);
     } else if(e.target.matches('.confirm')) {
         console.log('confirm 클릭!');
         modifyEnd(e.target);
@@ -30,7 +30,7 @@ $box.addEventListener('click', e => {
         delAnimation(e.target);
         setTimeout(() => {
             deleteTodo(e.target)
-        }, 800);
+        }, 1500);
     }
     else return;
 });
@@ -40,9 +40,9 @@ $box.addEventListener('click', e => {
 // })
 
 // 할 일을 입력 받아서 추가
-function addTodoList(todo) {
+function addTodoList(todo, target) {
     if(todo === '') {
-        alert('할 일을 입력해주세요!');
+        inputAnimation(target);
         return;
     }
     const $copyUl = document.getElementById('copy');
@@ -98,3 +98,15 @@ $box.addEventListener('change', (e) => {
         $todo.style.opacity = 1;
     }
 });
+
+// 필수사항 애니메이션
+function inputAnimation(target) {
+    // console.log(target.parentNode.previousElementSibling);
+    const $target = target.parentNode.previousElementSibling;
+    $target.placeholder = '할 일은 필수 입력사항입니다!';
+    $target.classList.toggle('inputMoving');
+    setTimeout(() => {
+        $target.placeholder = '할 일을 입력하세요.';
+        $target.classList.toggle('inputMoving');
+    }, 3000);
+};
