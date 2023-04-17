@@ -119,7 +119,6 @@ function showResult() {
     const $resultText = document.querySelector('.result-text'); 
     const $computerChoice = document.querySelector('#computer-choice');
     const $userChoice = document.querySelector('#user-choice');
-    const $resultBox = document.querySelector('.result-box');
 
     $computerChoice.classList.toggle('selected');
     $userChoice.classList.toggle('selected');
@@ -128,7 +127,6 @@ function showResult() {
     $resultText.insertAdjacentHTML('afterbegin', '컴퓨터: ' + gameData.computerChoice + '<br>사용자: ' + gameData.userChoice + '<br>' + gameData.result)
     $buttons.classList.toggle('hide');
     $result.classList.toggle('hide');
-    $resultBox.classList.toggle('hide');
 };
 
 // 다시하기
@@ -138,16 +136,15 @@ function restart() {
     const $resultText = document.querySelector('.result-text');
     const $computerChoice = document.querySelector('#computer-choice');
     const $userChoice = document.querySelector('#user-choice');
-    const $resultBox = document.querySelector('.result-box');
 
     $computerChoice.classList.toggle('selected');
     $userChoice.classList.toggle('selected');
     $resultText.textContent = '';
     $buttons.classList.toggle('hide');
     $result.classList.toggle('hide');
-    $resultBox.classList.toggle('hide');
 };
 
+// 그만하기
 function quit() {
     const $progBox = document.getElementById('progress-box');
     const $end = document.getElementById('end');
@@ -168,7 +165,7 @@ function quit() {
 
 // 인트로 효과
 const introTitle = document.getElementsByClassName("intro__title")[0];
-const $progress = document.querySelector('.progress');
+
 // 타이틀 문구 타이핑
 const title = "신나는\n가위 바위 보\n게임!";
 
@@ -186,7 +183,6 @@ function typingIntroTitle() {
 
     if (cnt === title.length) {
         clearInterval(timer);
-        $progress.style.opacity = 1;
         return;
     }
 };
