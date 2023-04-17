@@ -35,6 +35,14 @@ $box.addEventListener('click', e => {
     else return;
 });
 
+
+const $addBtn = document.querySelector('span.add');
+$todoInput.addEventListener('keydown', e => {
+    if(e.keyCode === 13) {
+        $addBtn.click();
+    }
+});
+
 // $box.addEventListener('change', e => {
 
 // })
