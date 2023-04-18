@@ -30,17 +30,9 @@ $box.addEventListener('click', e => {
         delAnimation(e.target);
         setTimeout(() => {
             deleteTodo(e.target)
-        }, 1500);
+        }, 800);
     }
     else return;
-});
-
-
-const $addBtn = document.querySelector('span.add');
-$todoInput.addEventListener('keydown', e => {
-    if(e.keyCode === 13) {
-        $addBtn.click();
-    }
 });
 
 // $box.addEventListener('change', e => {
@@ -110,11 +102,17 @@ $box.addEventListener('change', (e) => {
 // 필수사항 애니메이션
 function inputAnimation(target) {
     // console.log(target.parentNode.previousElementSibling);
-    const $target = target.parentNode.previousElementSibling;
-    $target.placeholder = '할 일은 필수 입력사항입니다!';
-    $target.classList.toggle('inputMoving');
+    target.parentNode.previousElementSibling.placeholder = '할 일은 필수 입력사항입니다!';
+    target.parentNode.previousElementSibling.classList.toggle('inputMoving');
     setTimeout(() => {
-        $target.placeholder = '할 일을 입력하세요.';
-        $target.classList.toggle('inputMoving');
+        target.parentNode.previousElementSibling.placeholder = '할 일을 입력하세요.';
+        target.parentNode.previousElementSibling.classList.toggle('inputMoving');
     }, 3000);
 };
+
+const $addBtn = document.querySelector('span.add');
+$todoInput.addEventListener('keydown', e => {
+    if(e.keyCode === 13) {
+        $addBtn.click();
+    }
+});

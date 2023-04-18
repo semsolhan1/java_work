@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보 게임</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./Rock Paper Scissors.css">
+
+    <!-- script -->
+    <script src="./Rock Paper Scissors.js" defer></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="progress-box">
+            <header class="intro">
+                <h1 class="intro__title" lang="en" aria-label="신나는 가위바위보 게임"></h1>
+                <div class="intro__button" aria-hidden="true"></div>
+            </header>
+            <section>
+                <h1>가위바위보 게임</h1>
+            </section>
+            <section class="progress">
+                <div id="computer-choice" class="choice-img"></div>
+                <div id="user-choice" class="choice-img"></div>
+                <div id="buttons">
+                    <button id="scissors">가위</button>
+                    <button id="rock">바위</button>
+                    <button id="paper">보</button>
+                </div>
+            </section>
+            <section class="result-box hide">
+                <div id="result" class="hide">
+                    <div class="result-text"></div>
+                    <div class="count-box">
+                        <div class="total"><span>현재 게임 횟수 : <em>0</em>회</span></div>
+                        <div class="win"><span>현재 승리 횟수 : <em>0</em>회</span></div>
+                        <div class="draw"><span>현재 비긴 횟수 : <em>0</em>회</span></div>
+                        <div class="defeat"><span>현재 패배 횟수 : <em>0</em>회</span></div>
+                    </div>
+                    <div id="resultBtns">
+                        <button id="restart">다시하기</button>
+                        <button id="quit">그만하기</button>
+                    </div>
+            </section>
+        </div>
+        <section id="end" class="quitResult hide">
+            <div class="end-text"></div>
+            <div class="count-box">
+                <div class="total"><span>총 게임 횟수 : <em>0</em> 회</span></div>
+                <div class="win"><span>총 승리 횟수 : <em>0</em> 회</span></div>
+                <div class="draw"><span>총 비긴 횟수 : <em>0</em> 회</span></div>
+                <div class="defeat"><span>총 패배 횟수 : <em>0</em> 회</span></div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
