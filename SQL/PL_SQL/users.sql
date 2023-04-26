@@ -1,0 +1,14 @@
+CREATE TABLE users(
+    user_number NUMBER(5) PRIMARY KEY,
+    user_name VARCHAR2(20) NOT NULL,
+    phone_number VARCHAR2(30) NOT NULL,
+    total_paying NUMBER(10) DEFAULT 0,
+    grade VARCHAR2(10) DEFAULT 'BRONZE'
+);
+
+CREATE SEQUENCE users_seq
+    START WITH 1
+    INCREMENT BY 1
+    MAXVALUE 100000
+    NOCYCLE
+    NOCACHE;

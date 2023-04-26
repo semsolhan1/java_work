@@ -43,18 +43,17 @@ BEGIN
     INSERT INTO tbl_user_backup
     VALUES(:OLD.id, :OLD.name, :OLD.address, sysdate, v_type, USER());
     
-    
 END;
-INSERT INTO tbl_user VALUES ('test01', 'kim', '서울');
-INSERT INTO tbl_user VALUES ('test02', 'lee', '경기');
-INSERT INTO tbl_user VALUES ('test03', 'hong', '부산');
 
-SELECT * FROM tbl_user; 
+-- 확인!
+INSERT INTO tbl_user VALUES('test01', 'kim', '서울');
+INSERT INTO tbl_user VALUES('test02', 'lee', '경기');
+INSERT INTO tbl_user VALUES('test03', 'hong', '부산');
 
+SELECT * FROM tbl_user;
 SELECT * FROM tbl_user_backup;
 
 UPDATE tbl_user SET address='인천' WHERE id='test01';
-
 DELETE FROM tbl_user WHERE id = 'test02';
 
 -- BEFORE 트리거
@@ -70,7 +69,75 @@ INSERT INTO tbl_user VALUES('test04', '메롱이', '대전');
 
 SELECT * FROM tbl_user;
 
--------------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+/*
+- 트리거의 활용
+INSERT -> 주문 테이블 -> 주문 테이블 INSERT 트리거 실행 (물품 테이블 UPDATE)
+*/
+
+-- 주문 히스토리
+CREATE TABLE order_history (
+    history_no NUMBER(5) PRIMARY KEY,
+    order_no NUMBER(5),
+    product_no NUMBER(5),
+    total NUMBER(10),
+    price NUMBER(10)
+);
+
+-- 상품
+CREATE TABLE product(
+    product_no NUMBER(5) PRIMARY KEY,
+    product_name VARCHAR2(20),
+    total NUMBER(5),
+    price NUMBER(5)
+);
+
+CREATE SEQUENCE order_history_seq NOCACHE;
+CREATE SEQUENCE product_seq NOCACHE;
+
+INSERT INTO product VALUES(product_seq.NEXTVAL, '피자', 100, 10000);
+INSERT INTO product VALUES(product_seq.NEXTVAL, '치킨', 100, 20000);
+INSERT INTO product VALUES(product_seq.NEXTVAL, '햄버거', 100, 5000);
+
+SELECT * FROM product;
+
+-- 주문 히스토리에 데이터가 들어오면 실행.
+CREATE OR REPLACE TRIGGER trg_order_history
+    AFTER INSERT
+    ON order_history
+    FOR EACH ROW
+DECLARE
+    v_total NUMBER;
+    v_product_no NUMBER;
+BEGIN
+    dbms_output.put_line('트리거 실행!');
+    SELECT
+        :NEW.total
+    INTO
+        v_total
+    FROM dual;
+    
+    v_product_no := :NEW.product_no;
+    
+    UPDATE product SET total = total - v_total
+    WHERE product_no = v_product_no;
+    
+END;
+
+INSERT INTO order_history VALUES(order_history_seq.NEXTVAL, 200, 1, 5, 50000);
+INSERT INTO order_history VALUES(order_history_seq.NEXTVAL, 200, 2, 1, 20000);
+INSERT INTO order_history VALUES(order_history_seq.NEXTVAL, 200, 3, 15, 75000);
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -115,7 +115,7 @@ public class JDBCInsert {
 			 - 원활한 JDBC 프로그래밍을 위해 사용한 자원을 반납합니다.
 			 */
 			try {
-				pstmt.close();//역순으로 회수 합니다.
+				pstmt.close();
 				conn.close();
 				sc.close();
 			} catch (SQLException e) {

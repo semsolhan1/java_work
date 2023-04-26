@@ -68,7 +68,7 @@ CREATE TABLE lec_order
 (
 	stu_id varchar2(30) NOT NULL,
 	lec_no number(10,0) NOT NULL,
-	oderdate date DEFAULT SYSDATE,
+	orderdate date DEFAULT SYSDATE,
 	PRIMARY KEY (stu_id, lec_no)
 );
 
