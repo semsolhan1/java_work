@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+
 	<h2>당신은 성인입니다.</h2>
 	주류 및 담배를 구입할 수 있습니다.
 	

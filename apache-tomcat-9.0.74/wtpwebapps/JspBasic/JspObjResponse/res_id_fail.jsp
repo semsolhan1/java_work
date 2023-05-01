@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>존재하지 않는 회원 입니다.</h2>
+
+	<h2>존재하지 않는 회원입니다.</h2>
 	<a href="res_login_form.jsp">로그인 페이지로</a>
+
 </body>
 </html>
