@@ -16,8 +16,8 @@
         <h2>My Page</h2>
         <hr>
         <p>
-            <strong>${user.userName}(${user.userId})님의 정보를 관리합니다.</strong>        
-       	</p>
+            <strong>${user.userName}(${user.userId})님의 정보를 관리합니다.</strong>
+        </p>
         <hr>
         <br>
         <p>
