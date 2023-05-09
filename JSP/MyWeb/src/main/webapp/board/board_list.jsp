@@ -54,7 +54,9 @@
 					<tr>
 						<td>${b.boardId}</td>
 						<td>${b.writer}</td>
-						<td>${b.title}</td>
+						<td>
+							<a href="/MyWeb/content.board?bId=${b.boardId}">${b.title}</a> 
+						</td>
 						<td>${b.regDate}</td>
 						<td>${b.hit}</td>
 					</tr>
