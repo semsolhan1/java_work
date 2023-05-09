@@ -22,5 +22,8 @@ public interface IBoardDAO {
 	//글 검색 요청을 처리할 메서드
 	List<BoardVO> searchBoard(String keyword, String category);
 	
+	//조회수를 올려주는 메서드
+	void upHit(int bId);
+	
 	
 }
