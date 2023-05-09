@@ -133,5 +133,33 @@ public class BoardDAO implements IBoardDAO {
 		}
 
 	}
+	
+	@Override
+	public List<BoardVO> searchBoard(String keyword, String category) {
+		List<BoardVO> searchList = new ArrayList<>();
+		String sql = "SELECT * FROM my_board "
+				+ "WHERE " + category + " LIKE ?";
+		try(Connection conn = ds.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, "%" + keyword + "%");
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				BoardVO vo = new BoardVO(
+							rs.getInt("board_id"),
+							rs.getString("writer"),
+							rs.getString("title"),
+							rs.getString("content"),
+							rs.getTimestamp("reg_date").toLocalDateTime(),
+							rs.getInt("hit")
+						);
+				searchList.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return searchList;
+	}
 
 }
