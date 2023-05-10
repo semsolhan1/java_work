@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+
 	<%
 		String s = null;
 		s.indexOf("메롱");
 	%>
-	
+
 </body>
 </html>

@@ -25,11 +25,26 @@
   	<servlet-class>kr.co.jsp.servlet.ServletBasic</servlet-class>
   </servlet>
   
- 	<servlet-mapping>
- 		<servlet-name>basic</servlet-name>
- 		<url-pattern>/basic</url-pattern>
- 	</servlet-mapping>
-  
+  <servlet-mapping>
+  	<servlet-name>basic</servlet-name>
+  	<url-pattern>/basic</url-pattern>
+  </servlet-mapping>
   
   
 </web-app>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

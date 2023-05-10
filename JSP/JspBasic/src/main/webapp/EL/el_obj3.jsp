@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+
 	<%
 		User user = (User) session.getAttribute("member");
 	%>
@@ -17,7 +17,7 @@
 		# 이름: <%=user.getUserName() %> <br>
 		# 아이디: <%=user.getUserId() %> <br>
 		# 이메일: <%=user.getUserEmail() %> <br>
-		# 비밀번호:<%=user.getUserPw() %> <br>
+		# 비밀번호: <%=user.getUserPw() %>
 	</p>
 	
 	<hr>
@@ -28,6 +28,30 @@
 		# 이메일: ${member.userEmail} <br>
 		# 비밀번호: ${member.userPw}
 	</p>
-	
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

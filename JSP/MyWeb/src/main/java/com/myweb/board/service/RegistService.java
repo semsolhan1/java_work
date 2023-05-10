@@ -15,7 +15,7 @@ public class RegistService implements IBoardService {
 		String content = request.getParameter("bContent");
 		
 		BoardDAO.getInstance().regist(writer, title, content);
-		
+
 	}
 
 }

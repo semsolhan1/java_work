@@ -8,7 +8,7 @@
     	String id = "abc1234";
     
     	Cookie idCoo = new Cookie("id_cookie", id);
-    	Cookie nameCoo = new Cookie("name_cookie", "홍길동"); //공백입력시 동작하지 않는다.
+    	Cookie nameCoo = new Cookie("name_cookie", "홍길동");
     	
     	//2. 쿠키 클래스의 setter 메서드로 쿠키의 속성을 설정.
     	nameCoo.setMaxAge(60 * 60); //쿠키의 유효 시간 설정(초): 1시간 -> 60 * 60
@@ -28,7 +28,7 @@
 </head>
 <body>
 
-	<a href="cookie_chek.jsp">만든 쿠키 확인하기!</a>
+	<a href="cookie_chec.jsp">만든 쿠키 확인하기!</a>
 
 </body>
 </html>

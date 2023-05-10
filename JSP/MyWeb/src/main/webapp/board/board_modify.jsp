@@ -27,8 +27,8 @@
                    </div>
                    <div class="panel-body">
                        <form action="/MyWeb/update.board" method="post">
-                       <%-- 브라우저에 태그를 노출하지 않고 전송할 때 사용하는 타입 hidden --%>
-                              <input type="hidden" name="bId" value="${article.boardId}">
+                       	   <%-- 브라우저에 태그를 노출하지 않고 전송할 때 사용하는 타입 hidden --%>
+                       	   <input type="hidden" name="bId" value="${article.boardId}">
                            <div class="form-group">
                                <label for="writer" hidden>작성자</label>
                                <input id="writer" name="bWriter" value="${article.writer}" 

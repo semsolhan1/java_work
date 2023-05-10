@@ -14,10 +14,9 @@ public class SearchService implements IBoardService {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		
+
 		String category = request.getParameter("category");
 		String keyword = request.getParameter("search");
-		
 		List<BoardVO> list = BoardDAO.getInstance().searchBoard(keyword, category);
 		
 		if(list.size() == 0) {
@@ -30,18 +29,31 @@ public class SearchService implements IBoardService {
 						+ "				</script>";
 				out.print(htmlCode);
 				out.flush();
-				return;//조회 결과가 없었다면 request에 데이터를 담지 않아도 되기 때문에 메서드를 강제 종료.
+				return; //조회 결과가 없었다면 request에 데이터를 담지 않아도 되기 때문에 메서드를 강제 종료.
 				
 			} catch (IOException e) {
 				e.printStackTrace();
-			}
-			
-			
-			
+			}		
 		}
 		
 		request.setAttribute("boardList", list);
 		
+		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

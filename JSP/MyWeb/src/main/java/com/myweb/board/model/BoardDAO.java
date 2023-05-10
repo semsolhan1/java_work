@@ -11,6 +11,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.myweb.board.commons.PageVO;
+
 public class BoardDAO implements IBoardDAO {
 	
 	private DataSource ds;
@@ -47,20 +49,28 @@ public class BoardDAO implements IBoardDAO {
 			pstmt.setString(2, title);
 			pstmt.setString(3, content);
 			pstmt.executeUpdate();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	@Override
-	public List<BoardVO> listBoard() {
+	public List<BoardVO> listBoard(PageVO paging) {
 		List<BoardVO> articles = new ArrayList<>();
-		String sql = "SELECT * FROM my_board ORDER BY board_id DESC";
+		String sql = "SELECT * FROM"
+				+ "    ("
+				+ "    SELECT ROWNUM AS rn, tbl.* FROM"
+				+ "        ("
+				+ "        SELECT * FROM my_board"
+				+ "        ORDER BY board_id DESC"
+				+ "        ) tbl"
+				+ "    )"
+				+ "WHERE rn > " + (paging.getPage()-1) * paging.getCpp()
+				+ " AND rn <= " + paging.getPage() * paging.getCpp();
 		try(Connection conn = ds.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()) {
-			while(rs.next()) {//한행 지목
+			while(rs.next()) {
 				BoardVO vo = new BoardVO(
 							rs.getInt("board_id"),
 							rs.getString("writer"),
@@ -68,11 +78,10 @@ public class BoardDAO implements IBoardDAO {
 							rs.getString("content"),
 							rs.getTimestamp("reg_date").toLocalDateTime(),
 							rs.getInt("hit")
-							
 						);
 				articles.add(vo);
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return articles;
@@ -95,16 +104,14 @@ public class BoardDAO implements IBoardDAO {
 							rs.getInt("hit")
 						);
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		return vo;
 	}
 
 	@Override
 	public void updateBoard(String title, String content, int bId) {
-		
 		String sql = "UPDATE my_board "
 				+ "SET title=?, content=? "
 				+ "WHERE board_id=?";
@@ -114,11 +121,10 @@ public class BoardDAO implements IBoardDAO {
 			pstmt.setString(2, content);
 			pstmt.setInt(3, bId);
 			pstmt.executeUpdate();
-			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
 	}
 
 	@Override
@@ -128,10 +134,9 @@ public class BoardDAO implements IBoardDAO {
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setInt(1, bId);
 			pstmt.executeUpdate();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 	
 	@Override
@@ -141,7 +146,7 @@ public class BoardDAO implements IBoardDAO {
 				+ "WHERE " + category + " LIKE ?";
 		try(Connection conn = ds.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			pstmt.setString(1, "%" + keyword + "%");
+			pstmt.setString(1, "%" +keyword + "%");
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
 				BoardVO vo = new BoardVO(
@@ -154,28 +159,56 @@ public class BoardDAO implements IBoardDAO {
 						);
 				searchList.add(vo);
 			}
-		} catch (SQLException e) {
+			
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		
 		return searchList;
 	}
-
+	
 	@Override
 	public void upHit(int bId) {
 		String sql = "UPDATE my_board SET hit=hit+1 "
-				+ "WHERER board_id=?";
+				+ "WHERE board_id=?";
 		try(Connection conn = ds.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setInt(1, bId);
 			pstmt.executeUpdate();
-		} catch (SQLException e) {
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	@Override
+	public int countArticles() {
+		int count = 0;
+		String sql = "SELECT COUNT(*) FROM my_board";
+		try(Connection conn = ds.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery()) {
+			if(rs.next()) {
+				count = rs.getInt("count(*)");
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
+		return count;
 	}
+	
 
-	
-	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
