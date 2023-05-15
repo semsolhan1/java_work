@@ -19,6 +19,6 @@ public interface IBoardMapper {
 	void deleteArticle(int bno);
 
 	//게시글 수정
-	void updateArticle(BoardVO vo);
+	void updateArticle(BoardVO vo);	
 
 }
