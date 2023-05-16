@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -23,9 +24,14 @@ public class FreeBoardController {
 		model.addAttribute("boardList", service.getList());
 	}
 	
+	//글쓰기 페이지 열어주는 메서드
+	@GetMapping("/regist")
+	public String regist() {
+		return "freeboard/freeRegist";
+	}
 	
 	//글 등록 처리
-	@PostMapping("/freeRegist")
+	@PostMapping("/regist")
 	public String regist(FreeBoardVO vo) {
 		service.regist(vo);
 		return "redirect:/freeboard/freeList";
@@ -38,9 +44,15 @@ public class FreeBoardController {
 		return "freeboard/freeDetail";
 	}
 	
-	//글 수정 처리
+	//글 수정 페이지 이동 처리
 	@PostMapping("/modify")
-	public String modify(FreeBoardVO vo) {
+	public String modify(@ModelAttribute("article") FreeBoardVO vo) {
+		return "freeboard/freeModify";
+	}
+	
+	//글 수정 처리
+	@PostMapping("/update")
+	public String update(FreeBoardVO vo) {
 		service.update(vo);
 		return "redirect:/freeboard/content?bno=" + vo.getBno();
 	}
