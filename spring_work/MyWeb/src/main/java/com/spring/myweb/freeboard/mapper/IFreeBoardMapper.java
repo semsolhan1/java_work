@@ -5,7 +5,7 @@ import java.util.List;
 import com.spring.myweb.command.FreeBoardVO;
 
 public interface IFreeBoardMapper {
-
+	
 	//글 등록
 	void regist(FreeBoardVO vo);
 	
@@ -20,4 +20,19 @@ public interface IFreeBoardMapper {
 	
 	//삭제
 	void delete(int bno);
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -8,20 +8,18 @@
 	<!-- JDBC, DB 관련 빈을 등록하고 관리하는 설정 파일 -->
 	
 	<!-- 
-		프로젝트를 구성하다 보면 자주 변경되지 않는 설정 파일들이나, 공통 정보들에 대한
+		프로젝트를 구성하다 보면 자주 변경되지 않는 설정 파일들이나, 공통 정보들에 대한 
 		내용이 존재하게 되고, 그 내용들은 한 번 지정되면 잘 바뀌지 않습니다.
-		또한 외부로 노출되었을 시 심각한 문제가 발생할 수도 있는(계정 정보 등) 자료들은
+		또한 외부로 노출되었을 시 심각한 문제가 발생할 수도 있는 (계정 정보 등) 자료들은
 		.properties 라는 파일을 사용하여 텍스트 형식으로 간단히 지정하고
-		필요할 때 불러와서 상용하는 방식을 많이 사용합니다.
+		필요할 때 불러와서 사용하는 방식을 많이 사용합니다.
 		(.properties 파일은 gitignore에 추가하여 외부로 공개되지 않게 합니다.)
 	 -->
-	
+	 
 	<!-- 외부에 따로 설정한 설정 파일을 참조하는 곳에 사용하는 클래스 -->
 	<bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
-        <property name="location" value="classpath:/properties/Hikari.properties" />
-	
+		<property name="location" value="classpath:/properties/Hikari.properties" />
 	</bean>
-	
 	
 	
 	<!-- 히카리 커넥션 풀 빈 등록 -->
@@ -41,7 +39,8 @@
 	<!-- 마이바티스 SQL 동작을 위한 핵심 객체 SqlSessionFactory 클래스 빈 등록 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="ds" />
-		<property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml" />
+		<property name="configLocation" value="classpath:/mybatis-config.xml" />
+		<property name="mapperLocations" value="classpath:/mappers/*Mapper.xml" />
 	</bean>
 	
 	<!-- 
@@ -50,6 +49,10 @@
 		이미 xml 파일에는 해당 파일이 어떤 인터페이스를 구현하는 구현체인지는 명시되어 있습니다.
 		그 인터페이스가 존재하는 패키지의 경로를 탐색하라는 태그입니다.
 	 -->
-	<mybatis-spring:scan base-package="com.spring.db.repository"/>
+	<mybatis-spring:scan base-package="com.spring.myweb.freeboard.mapper"/>
 		
 </beans>
+
+
+
+
