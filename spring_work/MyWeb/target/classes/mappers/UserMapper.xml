@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+ <mapper namespace="com.spring.myweb.user.mapper.IUserMapper">
+ 
+ 	<insert id="join">
+ 		INSERT INTO users
+ 		(user_id, user_pw, user_name, user_phone1, user_phone2, user_email1,
+ 		 user_email2, addr_basic, addr_detail, addr_zip_num)
+ 		 VALUES(${}, ${userId}, ${userPw}, ${userName}, ${userPhone1}, ${userPhone2}, 
+ 		 ${userEmail1}, ${userEmail2}, ${addrBasic}, ${addrDetail}, ${addrZipNum})
+ 	</insert>
+ 
+ </mapper>
+
+
+
