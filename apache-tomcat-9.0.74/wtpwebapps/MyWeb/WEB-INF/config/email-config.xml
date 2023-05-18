@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 이메일 인증 관련 빈 등록 -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		
+		<property name="host" value="smtp.naver.com" /> <!-- smtp.gmail.com -->
+		<property name="port" value="465" /> <!-- 587 -->
+		<property name="username" value="" />
+		<property name="password" value="" />
+		
+	</bean>	
+	
+	
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

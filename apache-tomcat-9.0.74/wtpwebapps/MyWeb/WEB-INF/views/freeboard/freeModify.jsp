@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%@ include file="../include/header.jsp" %>
+	<%@ include file="../include/header.jsp" %>
 
     <section>
         <div class="container">
@@ -11,7 +11,7 @@
                             <p>수정하기</p>
                         </div>
                         
-                        <form action="${pageContext.request.contextPath}/freeboard/update" method="post" name="updateForm">
+                        <form action="${pageContext.request.contextPath}/freeboard/update" method="post" name="updateForm">   
                             <div class="form-group">
                                 <label>번호</label>
                                 <input class="form-control" name="bno" value="${article.bno}" readonly>
@@ -22,7 +22,7 @@
                             </div>    
                             <div class="form-group">
                                 <label>제목</label>
-                                <input class="form-control" name="title" value="${article.title }">
+                                <input class="form-control" name="title" value="${article.title}">
                             </div>
 
                             <div class="form-group">
@@ -40,27 +40,26 @@
         </div>
         </section>
         
-        
         <%@ include file="../include/footer.jsp" %>
-
+      
         <script>
             //목록 이동 처리
             document.getElementById('listBtn').onclick = function() {
                 location.href="${pageContext.request.contextPath}/freeboard/freeList";
             }
-            
+
             const $form = document.updateForm;
 
             //수정 버튼 이벤트 처리
             document.getElementById('updateBtn').onclick = function() {
-                if($form.title.value = '') {
+                if($form.title.value === '') {
                     alert('제목은 필수 항목입니다.');
                     $form.title.focus();
-                    retnrn;
+                    return;
                 } else if($form.content.value === '') {
                     alert('내용은 필수 항목입니다.');
                     $form.content.focus();
-                    retnrn;
+                    return;
                 } else {
                     $form.submit();
                 }
@@ -69,10 +68,15 @@
             //삭제 버튼 이벤트 처리
             document.getElementById('delBtn').onclick = () => {
                 if(confirm('정말 삭제하시겠습니까?')) {
-                    $form.setattribute('acion', '${pageContext.request.contextPath}/freeboard/delete');
+                    $form.setAttribute('action', '${pageContext.request.contextPath}/freeboard/delete');
+                    // $form.setAttribute('method', 'post');
                     $form.submit();
                 }
             }
 
+
         </script>
+      
+      
+      
       
