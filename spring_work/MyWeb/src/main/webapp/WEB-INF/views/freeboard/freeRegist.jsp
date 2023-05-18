@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 
 	<%@ include file="../include/header.jsp" %>
-
     <section>
        <div class="container">
             <div class="row">
@@ -10,6 +9,7 @@
                     <div class="titlebox">
                         <p>자유게시판</p>
                     </div>
+                    
                     <form action="${pageContext.request.contextPath}/freeboard/regist" method="post">
 	                    <table class="table">
 	                        <tbody class="t-control">
@@ -22,18 +22,19 @@
 	                                <td><input class="form-control input-sm" name="title"></td>
 	                            </tr>
 	                            <tr>
-	                                <td class="t-title">COMMNET</td>
+	                                <td class="t-title">CONTENT</td>
 	                                <td>
 	                                <textarea class="form-control" rows="7" name="content"></textarea>
 	                                </td>                 
 	                            </tr>
 	                        </tbody>
 	                    </table>
-                    <div class="titlefoot">
-                        <button class="btn" type="submit">등록</button>
-                        <button class="btn" type="button" onclick="location.href='${pagsContext.request.contextPath}/freeboard/freelist'">목록</button>
-                    </div>
-  					</form>                  
+	                    <div class="titlefoot">
+	                        <button class="btn" type="submit">등록</button>
+	                        <button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/freeboard/freeList'">목록</button>
+	                    </div>
+                    </form>
+                    
                 </div>
             </div>    
        </div>

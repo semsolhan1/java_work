@@ -2,9 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-   
-<%@ include file="../include/header.jsp" %>
 
+	<%@ include file="../include/header.jsp" %>
 
     <section>
         <div class="container">
@@ -19,20 +18,23 @@
                                 <label>DATE</label>
                                 <c:if test="${article.updateDate == null}">
                                 	<p>
-                                		<fmt:parseDate value="${article.regDate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDteTime" type="both"/>
-	                            	<fmt:formatDate value="${parsedDateTime}" pattern="yyyy년 MM월 dd일 HH시 mm분" />
+                                		<fmt:parseDate value="${article.regDate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDateTime" type="both" />
+	                            		<fmt:formatDate value="${parsedDateTime}" pattern="yyyy년 MM월 dd일 HH시 mm분" />
+                                		
                                 	</p>
                                 </c:if>
                                 <c:if test="${article.updateDate != null}">
                                 	<p>
-                                		<fmt:parseDate value="${article.updateDate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDteTime" type="both"/>
-	                            	<fmt:formatDate value="${parsedDateTime}" pattern="yyyy년 MM월 dd일 HH시 mm분" />
+                                		<fmt:parseDate value="${article.updateDate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDateTime" type="both" />
+	                            		<fmt:formatDate value="${parsedDateTime}" pattern="yyyy년 MM월 dd일 HH시 mm분" />
+                                		
                                 	</p>
                                 </c:if>
                             </div>   
                             <div class="form-group">
                                 <label>번호</label>
-                                <input class="form-control" name="bno" value="${article.bno}" readonly>                            </div>
+                                <input class="form-control" name="bno" value="${article.bno}" readonly>
+                            </div>
                             <div class="form-group">
                                 <label>작성자</label>
                                 <input class="form-control" name="writer" value="${article.writer}" readonly>
@@ -127,4 +129,8 @@
 		</div>
 	</div>
 	
+	
 	<%@ include file="../include/footer.jsp" %>
+	
+	
+	

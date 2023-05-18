@@ -5,26 +5,27 @@
 <mapper namespace="com.spring.myweb.freeboard.mapper.IFreeBoardMapper">
 	
 	<!-- 
-		#동적 SQL 쿼리
+		# 동적 SQL 쿼리
 		태그로 조건문을 사용하여 쿼리의 실행을 동적으로 제어할 수 있는 문법
 		중복된 SQL 쿼리를 피할 수 있고, 상황에 따른 능동적 대처가 가능합니다.
-		미리 쿼리문을 준비해 놓고, <include refid="이름(id)" /> 를 통해 삽입하여 사용합니다.			
+		미리 쿼리문을 준비해 놓고, <include refid="이름(id)" /> 를 통해 삽입하여 사용합니다.
 	 -->
-	<sql id="search">
-		<if test="condition == 'title'">
-			WHERE title LIKE CONCAT('%', #{keyword}, '%')
-		</if>
-		<if test="condition == 'writer'">
-			WHERE writer LIKE CONCAT('%', #{keyword}, '%')
-		</if>
-		<if test="condition == 'content'">
-			WHERE content LIKE CONCAT('%', #{keyword}, '%')
-		</if>
-		<if test="condition == 'titleContent'">
-			WHERE title LIKE CONCAT('%', #{keyword}, '%')
-			OR WHERE title LIKE CONCAT('%', #{keyword}, '%')
-		</if>
-	</sql>
+	 <sql id="search">
+	 	<if test="condition == 'title'">
+	 		WHERE title LIKE CONCAT('%', #{keyword}, '%')
+	 	</if>
+	 	<if test="condition == 'writer'">
+	 		WHERE writer LIKE CONCAT('%', #{keyword}, '%')
+	 	</if>
+	 	<if test="condition == 'content'">
+	 		WHERE content LIKE CONCAT('%', #{keyword}, '%')
+	 	</if>
+	 	<if test="condition == 'titleContent'">
+	 		WHERE title LIKE CONCAT('%', #{keyword}, '%')
+	 		OR content LIKE CONCAT('%', #{keyword}, '%')
+	 	</if>
+	 </sql>
+	
 	
 	
 	<insert id="regist">
@@ -37,8 +38,9 @@
 		SELECT * FROM freeboard
 		<include refid="search" />
 		ORDER BY bno DESC
-		LIMIT #{pageStart}, #{cpp}
+		LIMIT #{pageStart} , #{cpp}
 	</select>
+	
 	
 	<select id="getTotal" resultType="int">
 		SELECT COUNT(*)

@@ -22,22 +22,33 @@ public class PageCreator {
 	}
 	
 	private void calcDataOfPage() {
-		endPage = (int) Math.ceil(paging.getPageNum() / (double) buttonNum) * buttonNum;
+		
+		endPage = (int) (Math.ceil(paging.getPageNum() / (double) buttonNum) * buttonNum);
 		
 		beginPage = endPage - buttonNum + 1;
 		
 		prev = (beginPage == 1) ? false : true;
 		
-		next = articleTotalCount <= (endPage * paging.getCpp()) ? false: true;
+		next = articleTotalCount <= (endPage * paging.getCpp()) ? false : true;
 		
 		if(!next) {
 			endPage = (int) Math.ceil(articleTotalCount / (double) paging.getCpp());
 		}
+		
 	}
 	
 	
 	
+
 }
+
+
+
+
+
+
+
+
 
 
 

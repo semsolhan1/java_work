@@ -30,7 +30,6 @@ public class FreeBoardService implements IFreeBoardService {
 		return mapper.getTotal(vo);
 	}
 
-
 	@Override
 	public FreeBoardVO getContent(int bno) {
 		return mapper.getContent(bno);

@@ -1,8 +1,8 @@
 package com.spring.myweb.util;
 
 import lombok.Getter;
-import lombok.ToString;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
@@ -23,12 +23,31 @@ public class PageVO {
 	
 	public int getPageStart() {
 		/*
-			pageNum: 1 -> return 0
-			pageNum: 2 -> return 10
-			pageNum: 3 -> return 20
-			pageNum: n -> return (n-1) * cpp
-		*/
-		return (pageNum -1) * cpp;
+		 pageNum: 1 -> return 0
+		 pageNum: 2 -> return 10
+		 pageNum: 3 -> return 20
+		 pageNum: n -> return (n-1) * cpp
+		 */
+		return (pageNum - 1) * cpp;
 	}
-	
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

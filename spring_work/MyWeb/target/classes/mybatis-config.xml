@@ -22,6 +22,7 @@
 
 	<typeAliases>
 		<typeAlias type="com.spring.myweb.command.FreeBoardVO" alias="board" />
+		<typeAlias type="com.spring.myweb.command.UserVO" alias="user" />
 	</typeAliases>
 	
 	

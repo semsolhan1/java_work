@@ -38,7 +38,7 @@ public class FreeBoardMapperTest {
 		//given: 테스트를 위해 주어질 데이터 (ex: parameter)
 		for(int i=1; i<=200; i++) {
 			FreeBoardVO vo = new FreeBoardVO();
-			vo.setTitle("테스트 제목" + i);
+			vo.setTitle("테스트 제목 " + i);
 			vo.setWriter("abc1234");
 			vo.setContent("테스트 내용입니다. " + i);
 			//when: 테스트 실제 상황
@@ -46,7 +46,6 @@ public class FreeBoardMapperTest {
 		}
 		
 		//then: 테스트 결과를 확인.
-		
 		
 	}
 	
