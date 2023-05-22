@@ -5,8 +5,18 @@
 <mapper namespace="com.spring.myweb.user.mapper.IUserMapper">
 
 	<!-- collection 타입의 변수에 값을 매길 때에는 어떤 객체로 포장해서 넣을지를
-		새로운 resultMap으로 선언해 주셔야 합니다. -->
+		새로운 resultMap으로 선언해 주셔야 합니다.
+		sql에서 조회하는 컬럼에 대한 모든 정보를 작성해 주셔야 합니다. -->
 	<resultMap type="user" id="userMap">
+		<result property="userName" column="user_name" />
+        <result property="userPhone1" column="user_phone1" />
+        <result property="userPhone2" column="user_phone2" />
+        <result property="userEmail1" column="user_email1" />
+        <result property="userEmail2" column="user_email2" />
+        <result property="addrBasic" column="addr_basic" />
+        <result property="addrDetail" column="addr_detail" />
+        <result property="addrZipNum" column="addr_zip_num" />
+		
 		<collection property="userBoardList" resultMap="list" />
 	</resultMap>
 
@@ -37,12 +47,8 @@
 		WHERE user_id=#{id}
 	</select>
 	
-	<select id="getInfo" resultType="user">
-		SELECT * FROM users
-		WHERE user_id=#{id}
-	</select>
 	
-	<select id="getInfo" resultType="user">
+	<select id="getInfo" resultMap="userMap">
 	SELECT 
 		user_name, user_phone1, user_phone2,
 	    user_email1, user_email1, addr_basic,

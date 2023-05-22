@@ -13,6 +13,11 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+.classpath
+.project
+.springBeans
+properties/
+.properties
 
 # External tool builders
 .externalToolBuilders/

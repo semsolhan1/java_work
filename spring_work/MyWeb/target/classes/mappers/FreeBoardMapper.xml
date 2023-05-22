@@ -26,6 +26,11 @@
 	 	</if>
 	 </sql>
 	
+	<sql id="myPage">
+		<if test="loginId !- null">
+			WHERE writer = #{loginId}
+		</if>
+	</sql>
 	
 	
 	<insert id="regist">
@@ -46,6 +51,7 @@
 		SELECT COUNT(*)
 		FROM freeboard
 		<include refid="search" />
+		<include refid="myPage" />
 	</select>
 	
 	<select id="getContent" resultType="board">

@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.myweb.command.UserVO;
+import com.spring.myweb.freeboard.service.IFreeBoardService;
 import com.spring.myweb.user.service.IUserService;
 import com.spring.myweb.util.MailSenderService;
+import com.spring.myweb.util.PageCreator;
 import com.spring.myweb.util.PageVO;
 
 import lombok.Getter;
@@ -28,6 +30,8 @@ public class UserController {
 
 	@Autowired
 	private IUserService service;
+	@Autowired
+	private IFreeBoardService boardService;
 	@Autowired
 	private MailSenderService mailService;
 	
@@ -82,8 +86,10 @@ public class UserController {
 	
 		//세션 데이터에서 id를 뽑아야 sql을 돌릴 수 있겠죠?
 		String id = (String) session.getAttribute("login");
-		UserVO user = service.getInfo(id, vo);
-		
+		vo.setLoginId(id);
+		PageCreator pc = new PageCreator(vo, boardService.getTotal(vo));
+		model.addAttribute("userIngo", service.getInfo(id, vo));
+		model.addAttribute("pc", pc);
 	}
 	
 	

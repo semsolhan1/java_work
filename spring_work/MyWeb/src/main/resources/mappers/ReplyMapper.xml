@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.spring.myweb.reply.mapper.IReplyMapper">
+
+	<insert id="replyRegist">
+		INSERT INTO freereply
+		(bno, reply, reply_id, reply_pw)
+		VALUES(#{bno}, #{reply}, #{replyId}, #{replyPw})
+	</insert>
+	
+	<select id="getList" resultType="reply">
+		SELECT * FROM freereply
+		WHERE bno = #{bno}
+		ORDER BY rno DESC
+		LIMIT #{paging.pageStart}, #{paging.cpp}
+	</select>
+	
+	<select id="getTotal" resultType="int">
+	SELECT COUNT(*)
+	FROM freereply
+	WHERE bno = #{bno}
+	</select>
+
+
+</mapper>

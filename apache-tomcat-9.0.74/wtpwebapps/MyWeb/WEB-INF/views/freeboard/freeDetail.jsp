@@ -57,13 +57,14 @@
         </div>
         </section>
         
+        <!-- 댓글 영역 시작부분 -->
         <section style="margin-top: 80px;">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-md-9 write-wrap">
                         <form class="reply-wrap">
                             <div class="reply-image">
-                                <img src="../resources/img/profile.png">
+                                <img src="${pageContext.request.contextPath}/img/profile.png">
                             </div>
                             <!--form-control은 부트스트랩의 클래스입니다-->
 	                    <div class="reply-content">
