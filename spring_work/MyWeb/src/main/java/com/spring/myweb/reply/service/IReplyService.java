@@ -9,7 +9,7 @@ public interface IReplyService {
 
 void replyRegist(ReplyVO vo); //댓글 등록
 	
-	List<ReplyVO> getList(Map<String, Object> data); //목록 요청
+	List<ReplyVO> getList(int bno, int pageNum); //목록 요청
 	
 	int getTotal(int bno); //댓글 개수(페이징, PageCreator은 사용하지 않습니다.)
 	
