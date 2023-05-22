@@ -175,3 +175,10 @@
 0:0:0:0:0:0:0:1 - - [19/May/2023:18:31:51 +0900] "GET /myweb/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [19/May/2023:18:31:54 +0900] "GET /myweb/freeboard/freeList HTTP/1.1" 200 17147
 0:0:0:0:0:0:0:1 - - [19/May/2023:18:31:58 +0900] "GET /myweb/freeboard/regist HTTP/1.1" 200 6569
+127.0.0.1 - - [19/May/2023:18:32:20 +0900] "GET / HTTP/1.1" 200 11428
+0:0:0:0:0:0:0:1 - - [19/May/2023:18:32:22 +0900] "GET /myweb/freeboard/freeList HTTP/1.1" 200 17147
+0:0:0:0:0:0:0:1 - - [19/May/2023:18:32:24 +0900] "GET /myweb/freeboard/regist HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [19/May/2023:18:32:25 +0900] "GET /myweb/user/userLogin HTTP/1.1" 200 7403
+0:0:0:0:0:0:0:1 - - [19/May/2023:18:32:38 +0900] "GET /myweb/freeboard/freeList HTTP/1.1" 200 17147
+0:0:0:0:0:0:0:1 - - [19/May/2023:18:33:03 +0900] "GET /myweb/user/userMypage HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [19/May/2023:18:33:03 +0900] "GET /myweb/user/userLogin HTTP/1.1" 200 7403

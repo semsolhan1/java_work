@@ -1,6 +1,7 @@
 package com.spring.myweb.user.service;
 
 import com.spring.myweb.command.UserVO;
+import com.spring.myweb.util.PageVO;
 
 public interface IUserService {
 	
@@ -11,13 +12,15 @@ public interface IUserService {
 	void join(UserVO vo);
 	
 	//로그인
-	UserVO login(String id, String pw);
+	String login(String id, String pw);
 	
 	//회원 정보 얻어오기
-	UserVO getInfo(String id);
+	UserVO getInfo(String id, PageVO vo);
 	
 	//회원 정보 수정
 	void updateUser(UserVO vo);
+
+	
 	
 
 }
