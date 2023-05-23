@@ -86,6 +86,7 @@
 
                 <!--여기에 접근 반복-->
                 <div id="replyList">
+                    <!-- 자바스크립트 단에서 반복문을 이용해서 댓글의 개수만큼 반복 표현.
                     <div class='reply-wrap'>
                         <div class='reply-image'>
                             <img src='../resources/img/profile.png'>
@@ -100,6 +101,7 @@
                             <p class='clearfix'>여기는 댓글영역</p>
                         </div>
                     </div>
+                     -->
                 </div>
             </div>
         </div>
@@ -141,6 +143,7 @@
     window.onload = function () {
 
         document.getElementById('replyRegist').onclick = () => {
+            console.log('댓글 등록 이벤트 발생!');
 
             const bno = '${article.bno}'; //현재 게시글 번호
             const reply = document.getElementById('reply').value;
@@ -159,21 +162,93 @@
                     'content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    'bno' : bno,
-                    'reply' : reply,
-                    'replyId' : replyId,
-                    'replyPw' : replyPw
+                    'bno': bno,
+                    'reply': reply,
+                    'replyId': replyId,
+                    'replyPw': replyPw
                 })
-                
+
 
             };
 
             fetch('${pageContext.request.contextPath}/reply/regist', reqObj)
                 .then(res => res.text())
-                    .then(data => {
-                        console.lot('통신 성공!:' + data);
-                        document.getElementById('reply').value = '';
-                    })
+                .then(data => {
+                    console.lot('통신 성공!:' + data);
+                    document.getElementById('reply').value = '';
+                    document.getElementById('replyId').value = '';
+                    document.getElementById('replyPw').value = '';
+                    //등록 완료 후 댓글 목록 함수를 호출해서 비동기식으로 목록 표현
+                    getList(1, true);
+                })
+
+        } //댓글 등록 이벤트 끝.
+
+        let page = 1; //전역 의미로 사용할 페이지 번호
+        let strAdd = ''; //화면에 그려넣을 태그를 문자열의 형태로 추가할 변수
+        const $replyList = document.getElementById('replyList');
+
+        //게시글 상세보기 화면에 처음 진입했을 시 댓글 리스트를 한 번 불러오자.
+        getList(1, true);
+
+        //댓글 목록을 가져올 함수.
+        //getList의 매개값으로 뭘 줄거냐?
+        //요청된 페이지 번호와, 화면을 리셋할 것인지의 여부를 bool 타입의 reset으로 받겠습니다.
+        //(페이지가 그대로 머물면서 댓글이 밑에 계속 쌓이기 때문에, 상황에 따라서
+        //페이지를 리셋해서 새롭게 그려낼 것인지, 누적해서 쌓을 것인지의 여부를 판단.)
+        function getList(pageNum, reset) {
+
+            const bno = '${article.bno}'; //게시글 번호
+
+            //get방식으로 댓글 목록을 요청(비동기)
+            fetch('${pageContext.request.contextPath}/reply/getList/' + bno + '/' + pageNum)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+
+                    let total = data.total; //총 댓글 수
+                    let replyList = data.list; //댓글 리스트
+
+                    //응답 데이터의 길이가 0과 같거나 더 작으면 함수를 종료.
+                    if (replyList.length <= 0) return;
+
+                    //insert, update, dlelte작업 후에는
+                    //댓글 내용 태그를 누적하고 있는 strAdd변수를 초기화해서
+                    //마치 화면에 리셋된 것처럼 보여줘야 합니다.
+                    if(reset) {
+                        strAdd = '';
+                        while($replyList.firstChild) {
+                            $replyList.removeChild($replyList.firstChild);
+                        }
+                        page = 1;
+                    }
+
+                    //replyList의 개수만큼 태그를 문자열 형태로 직접 그림.
+                    //중간에 들어갈 글쓴이, 날짜, 댓글 내용은 목록에서 꺼내서 표현.
+                    for (let i = 0; i < replyList.length; i++) {
+                        strAdd +=
+                        `<div class='reply-wrap'>
+                        <div class='reply-image'>
+                            <img src='${pagaContext.request.contextPath}/img/profile.png'>
+                        </div>
+                            <div class='reply-content'>
+                                <div class='reply-group'>
+                                    <strong class='left'>` + replyList[i].replyId + `</strong>
+                                    <small class='left'>` + replyList[i].replyDate +`</small>
+                                    <a href='#' class='right'><span class='glyphicon glyphicon-pencil'></span>수정</a>
+                                    <a href='#' class='right'><span class='glyphicon glyphicon-remove'></span>삭제</a>
+                                </div>
+                                <p class='clearfix'>` + replyList[i].reply +`</p>
+                            </div>
+                        </div>`;
+                    }
+
+                    //id가 replyList라는 div 영역에 문자열 형식으로 모든 댓글을 추가.
+                    document.getElementById('replyList').insertAdjacentHTML('afterbegin', strAdd);
+
+
+
+                });
 
         }
 
