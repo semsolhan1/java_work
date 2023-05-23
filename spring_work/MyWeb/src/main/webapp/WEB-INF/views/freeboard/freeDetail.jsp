@@ -195,11 +195,12 @@
             1페이지의 댓글 내용 밑에다가 2페이지를 누적해서 깔아야 합니다.
             1페이지 내용을 없애고 2페이지를 보여주자는 것이 아니니까요.
             */
-            getList(++page, false);
+            getList(++page, true);
+            
         }
 
 
-        let page = 1; //전역 의미로 사용할 페이지 번호
+        let page = 0; //전역 의미로 사용할 페이지 번호
         let strAdd = ''; //화면에 그려넣을 태그를 문자열의 형태로 추가할 변수
         const $replyList = document.getElementById('replyList');
 
@@ -214,6 +215,7 @@
         function getList(pageNum, reset) {
             strAdd = '';
             const bno = '${article.bno}'; //게시글 번호
+            
 
             //get방식으로 댓글 목록을 요청(비동기)
             fetch('${pageContext.request.contextPath}/reply/getList/' + bno + '/' + pageNum)
@@ -230,6 +232,7 @@
                     //insert, update, delete 작업 후에는
                     //댓글 내용 태그를 누적하고 있는 strAdd 변수를 초기화해서
                     //마치 화면이 리셋된 것처럼 보여줘야 합니다.
+                    
                     if(reset) {
                         
                         while($replyList.firstChild) {
@@ -427,8 +430,9 @@
                         alert('삭제를 진행합니다.');
                         document.getElementById('modalPw').value = '';
                         $('#replyModal').modal('hide');
-                        getList(1, true);                        
+                        getList(1, true); 
                     }
+                       
                 });
             }
             
