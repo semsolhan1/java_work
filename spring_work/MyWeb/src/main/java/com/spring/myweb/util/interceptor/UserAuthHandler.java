@@ -10,7 +10,7 @@ public class UserAuthHandler implements HandlerInterceptor {
 
 	//회원 권한이 필요한 페이지 요청이 들어왔을 때, 컨트롤러보다 먼저 요청을 가로채서
 	//확인할 인터셉터로 사용합니다.
-	//글쓰기 화면, 마이페이지로 화면으로 들어가는 요청을 가로채 검사하도록 합시다.
+	//글쓰기 화면, 마이페이지 화면으로 들어가는 요청을 가로채 검사하도록 합시다.
 	//권한이 없다면 로그인 페이지로 보내버리겠습니다.
 	
 	@Override
@@ -27,11 +27,23 @@ public class UserAuthHandler implements HandlerInterceptor {
 			return false;
 		}
 		
-		//로그인을 했다면 통과~
+		// 로그인을 했다면 통과~
 		return true;
-		
-		
-		
 	}
 	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

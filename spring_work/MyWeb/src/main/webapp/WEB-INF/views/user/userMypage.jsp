@@ -5,6 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <%@ include file="../include/header.jsp" %>
+
 <section>
     <!--Toggleable / Dynamic Tabs긁어옴-->
     <div class="container">
@@ -42,7 +43,7 @@
                                         <td><input class="form-control input-sm" name="userPw"></td>
                                     </tr>
                                     <tr>
-                                        <td class.="m-title">*비밀번호확인</td>
+                                        <td class="m-title">*비밀번호확인</td>
                                         <td><input class="form-control input-sm" name="userPwChk"></td>
                                     </tr>
                                     <tr>
@@ -75,10 +76,10 @@
                                         <td class="m-title">*휴대폰</td>
                                         <td>
                                             <select class="form-control input-sm sel" name="userPhone1">
-                                                <option>${userInfo.userPhone1 == '010' ? 'selected' : '' }010</option>
-                                                <option>${userInfo.userPhone1 == '011' ? 'selected' : '' }011</option>
-                                                <option>${userInfo.userPhone1 == '017' ? 'selected' : '' }017</option>
-                                                <option>${userInfo.userPhone1 == '018' ? 'selected' : '' }018</option>
+                                                <option ${userInfo.userPhone1=='010' ? 'selected' : '' }>010</option>
+                                                <option ${userInfo.userPhone1=='011' ? 'selected' : '' }>011</option>
+                                                <option ${userInfo.userPhone1=='017' ? 'selected' : '' }>017</option>
+                                                <option ${userInfo.userPhone1=='018' ? 'selected' : '' }>018</option>
                                             </select>
                                             <input class="form-control input-sm" name="userPhone2">
                                         </td>
@@ -111,6 +112,7 @@
                     </div>
                     <!-- 첫번째 토글 끝 -->
 
+
                     <!-- 두번째 토글 메뉴의 시작 -->
                     <div id="myBoard" class="tab-pane fade">
                         <p>*내 게시글 관리</p>
@@ -124,6 +126,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     <c:if test="${fn:length(userInfo.userBoardList) > 0}">
                                         <c:forEach var="vo" items="${userInfo.userBoardList}">
                                             <tr>
@@ -156,7 +159,7 @@
                                             </ul>
                                         </div>
                                     </c:if>
-                                    <c:if test="${fn:length(userInfo.userBoardList) <= 0 }">
+                                    <c:if test="${fn:length(userInfo.userBoardList) <= 0}">
                                     	<h2>아직 글을 작성하지 않았습니다.</h2>
                                     </c:if>
                                 </tbody>

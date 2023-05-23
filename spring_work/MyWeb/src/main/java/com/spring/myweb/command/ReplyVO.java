@@ -7,12 +7,12 @@ import lombok.Setter;
 import lombok.ToString;
 
 /*
-CREATE TABLE freereply(
+ CREATE TABLE freereply(
 	rno INT PRIMARY KEY AUTO_INCREMENT,
     bno INT,
     
-    FOREIGN KEY (bno)
-    REFERENCES freeboard(bno)
+	FOREIGN KEY (bno) 
+	REFERENCES freeboard(bno)
     ON DELETE CASCADE,
     
     reply VARCHAR(1000),
@@ -20,16 +20,14 @@ CREATE TABLE freereply(
     reply_pw VARCHAR(50),
     reply_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     update_date DATETIME DEFAULT NULL
-    );
-
-
-*/
+);
+ */
 
 @Getter
 @Setter
 @ToString
 public class ReplyVO {
-
+	
 	private int rno;
 	private int bno;
 	
@@ -38,7 +36,10 @@ public class ReplyVO {
 	private String replyPw;
 	private LocalDateTime replyDate;
 	private LocalDateTime updateDate;
+
 }
+
+
 
 
 

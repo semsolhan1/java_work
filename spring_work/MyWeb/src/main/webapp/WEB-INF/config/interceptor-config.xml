@@ -11,6 +11,7 @@
 	<bean id="userLoginSuccessHandler" class="com.spring.myweb.util.interceptor.UserLoginSuccessHandler" />
 	<bean id="userAuth" class="com.spring.myweb.util.interceptor.UserAuthHandler" />
 	
+	
 	<mvc:interceptors>
 	
 		<!-- 로그인 이후에 실행되는 postHandler를 어떤 url에 동작하게 할 지 세팅 -->
@@ -29,7 +30,15 @@
 	
 	</mvc:interceptors>
 
+
 </beans>
+
+
+
+
+
+
+
 
 
 

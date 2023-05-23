@@ -25,12 +25,13 @@
 	 		OR content LIKE CONCAT('%', #{keyword}, '%')
 	 	</if>
 	 </sql>
+	 
+	 <sql id="myPage">
+	 	<if test="loginId != null">
+	 		WHERE writer = #{loginId}
+	 	</if>
+	 </sql>
 	
-	<sql id="myPage">
-		<if test="loginId !- null">
-			WHERE writer = #{loginId}
-		</if>
-	</sql>
 	
 	
 	<insert id="regist">

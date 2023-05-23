@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    
+
 <mapper namespace="com.spring.myweb.reply.mapper.IReplyMapper">
 
 	<insert id="replyRegist">
@@ -18,10 +18,37 @@
 	</select>
 	
 	<select id="getTotal" resultType="int">
-	SELECT COUNT(*)
-	FROM freereply
-	WHERE bno = #{bno}
+		SELECT COUNT(*)
+		FROM freereply
+		WHERE bno = #{bno}
 	</select>
+	
+	<select id="pwCheck" resultType="string">
+		SELECT reply_pw 
+		FROM freereply
+		WHERE rno = #{rno}
+	</select>
+	
+	<update id="update">
+		UPDATE freereply
+		SET reply = #{reply}, update_date = current_timestamp
+		WHERE rno = #{rno}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM freereply
+		WHERE rno = #{rno}
+	</delete>
 
 
 </mapper>
+
+
+
+
+
+
+
+
+
+

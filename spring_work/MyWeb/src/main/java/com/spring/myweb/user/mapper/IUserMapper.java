@@ -1,7 +1,5 @@
 package com.spring.myweb.user.mapper;
 
-import java.util.Map;
-
 import org.apache.ibatis.annotations.Param;
 
 import com.spring.myweb.command.UserVO;
@@ -27,7 +25,8 @@ public interface IUserMapper {
 	  
 	  중 하나를 상황에 맞게 적절하게 선택하시면 됩니다.
 	 */
-	String login(String id);	
+	String login(String id);
+	
 	//회원 정보 얻어오기
 	UserVO getInfo(@Param("id") String id, @Param("paging") PageVO vo);
 	
