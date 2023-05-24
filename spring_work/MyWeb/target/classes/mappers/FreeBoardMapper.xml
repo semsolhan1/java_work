@@ -33,7 +33,6 @@
 	 </sql>
 	
 	
-	
 	<insert id="regist">
 		INSERT INTO freeboard
 		(title, writer, content)
@@ -41,7 +40,9 @@
 	</insert>
 	
 	<select id="getList" resultType="board">
-		SELECT * FROM freeboard
+		SELECT f.*,
+		(SELECT COUNT(*) FROM freereply WHERE bno = f.bno) AS reply_cnt 
+		FROM freeboard f
 		<include refid="search" />
 		ORDER BY bno DESC
 		LIMIT #{pageStart} , #{cpp}

@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +20,6 @@ import com.spring.myweb.reply.service.IReplyService;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Controller
 @RestController
 @RequestMapping("/reply")
 @Slf4j
@@ -73,16 +72,16 @@ public class ReplyController {
 		}
 	}
 	
-	//댓글 삭제
 	@DeleteMapping("/{rno}")
 	public String delete(@PathVariable int rno, @RequestBody ReplyVO vo) {
 		vo.setRno(rno);
 		if(service.pwCheck(vo)) {
 			service.delete(rno);
-			return "deleteSuccess";
+			return "delSuccess";
 		} else {
 			return "pwFail";
 		}
+		
 	}
 	
 	
