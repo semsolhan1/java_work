@@ -20,13 +20,14 @@
 		
 	</settings>
 
-	<!-- 
 	<typeAliases>
-		<typeAlias type="com.spring.myweb.command.FreeBoardVO" alias="board" />
-		<typeAlias type="com.spring.myweb.command.UserVO" alias="user" />
-		<typeAlias type="com.spring.myweb.command.ReplyVO" alias="reply" />
+		<typeAlias type="com.spring.myreply.command.FreeBoardVO" alias="board" />
+		<!-- <typeAlias type="com.spring.myweb.command.UserVO" alias="user" /> -->
+		<!-- <typeAlias type="com.spring.myreply.command.ReplyVO" alias="reply" /> -->
+		
+		<typeAlias type="com.spring.myreply.command.ReplyeVO" alias="replye" />
 	</typeAliases>
-	 -->
+	
 	
 	<!-- 
 		인터페이스 mapper 구현체 xml 파일의 경로를 표시하는 태그.

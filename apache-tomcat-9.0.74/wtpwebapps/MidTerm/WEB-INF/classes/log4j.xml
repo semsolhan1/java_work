@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.midterm.foodSNS">
+	<logger name="com.spring.myreply">
 		<level value="info" />
 	</logger>
 	

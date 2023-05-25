@@ -14,7 +14,7 @@
 	<!-- 비밀번호 암호화 객체 빈 등록 -->
 	<beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 	
-	<!-- 외부에 따로 설정한 설정 파일을 참조하는 곳에 사용하는 클래스
+	<!-- 외부에 따로 설정한 설정 파일을 참조하는 곳에 사용하는 클래스 -->
 	<beans:bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
 		<beans:property name="locations">
 			<beans:list>
@@ -22,7 +22,6 @@
 			</beans:list>
 		</beans:property>
 	</beans:bean>
-	 -->
 	
 	
 
@@ -49,7 +48,26 @@
 		base-package에다가는 탐색할 패키지 경로를 쓰시면
 		하위 패키지까지 몽땅 검색해 줍니다.
 	 -->
-	<context:component-scan base-package="com.midterm.foodSNS" />
+	<context:component-scan base-package="com.spring.myreply" />
+	
+	
+	
+	<!-- 파일 업로드 -->
+	<!-- 
+		id를 multipartResolver로 선언.
+		Multipart 형식으로 전달되는 데이터를 스프링 mvc에서 사용할 수 있도록 변환해 주는 객체.
+	 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		
+		<!-- 최대 업로드 가능한 바이트 크기(바이트 단위), -1은 제한이 없음을 의미 -->
+		<beans:property name="maxUploadSize" value="10485760" />
+		
+		<!-- 업로드 요청을 변환할 때 사용할 문자 인코딩 방식 -->
+		<beans:property name="defaultEncoding" value="utf-8" />
+		
+	</beans:bean>
+	
+	
 	
 	
 	
