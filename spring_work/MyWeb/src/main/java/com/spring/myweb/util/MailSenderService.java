@@ -43,7 +43,7 @@ public class MailSenderService {
 				 "<br>" +
 				 "해당 인증 번호를 인증번호 확인란에 기입해 주세요."; //이메일에 삽입할 내용.
 		
-		mailSend(setFrom, toMail, title, content);
+		//mailSend(setFrom, toMail, title, content);
 		
 		return Integer.toString(authNum); //정수를 문자열로 리턴
 	}

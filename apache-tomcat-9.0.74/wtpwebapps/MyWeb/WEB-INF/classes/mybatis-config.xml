@@ -25,7 +25,6 @@
 		<typeAlias type="com.spring.myweb.command.UserVO" alias="user" />
 		<typeAlias type="com.spring.myweb.command.ReplyVO" alias="reply" />
 		<typeAlias type="com.spring.myweb.command.SnsBoardVO" alias="sns" />
-		<!-- <typeAlias type="com.spring.myweb.command.MyReplyVO" alias="myreply" /> -->
 	</typeAliases>
 	
 	

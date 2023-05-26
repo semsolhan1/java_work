@@ -5,11 +5,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -98,6 +101,73 @@ public class SnsBoardController {
 		
 		return result;
 	}
+	
+	//상세보기 처리
+	@GetMapping("/content/{bno}")
+	public SnsBoardVO getContent(@PathVariable int bno) {
+		return service.getDetail(bno);
+	}
+	
+	//삭제하기
+	@DeleteMapping("/{bno}")
+	public String delete(@PathVariable int bno, HttpSession session) {
+		
+		String id = (String) session.getAttribute("login");
+		SnsBoardVO vo = service.getDetail(bno);
+		
+		if(id == null || 
+				!id.equals(vo.getWriter())) {
+			return "noAuth";
+		}
+		
+		service.delete(bno);
+		
+		//글이 삭제되었다면 더이상 이미지도 존재할 필요가 없으므로
+		//이미지도 함께 지목해서 삭제.
+		
+		File file = new File(vo.getUploadPath() + vo.getFileLoca() + "/" + vo.getFileName());
+		return file.delete() ? "success" : "fail"; // -> 삭제가 성공했다면 true, 실패하면 false.	
+	}
+	
+	@GetMapping("/download/{fileLoca}/{fileName}")
+	public ResponseEntity<byte[]> download(@PathVariable String fileLoca, 
+										   @PathVariable String fileName) {
+		
+		File file = new File("C:/test/upload/" + fileLoca + "/" + fileName);
+		
+		ResponseEntity<byte[]> result = null;
+		
+		HttpHeaders header = new HttpHeaders();
+		
+		//응답하는 본문을 브라우저가 어떻게 표시해야 할 지 알려주는 헤더 정보를 추가합니다.
+		//inline인 경우 웹 페이지 화면에 표시되고, attachment인 경우 다운로드를 제공합니다.
+		
+		//request객체의 getHeader("User-Agent") -> 단어를 뽑아서 확인
+		//ie: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko  
+		//chrome: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101 Safari/537.36
+	
+		//파일명한글처리(Chrome browser) 크롬
+		//header.add("Content-Disposition", "attachment; filename=" + new String(fileName.getBytes("UTF-8"), "ISO-8859-1") );
+		//파일명한글처리(Edge) 엣지 
+		//header.add("Content-Disposition", "attachment; filename=" + URLEncoder.encode(fileName, "UTF-8"));
+		//파일명한글처리(Trident) IE
+		//Header.add("Content-Disposition", "attachment; filename=" + URLEncoder.encode(fileName, "UTF-8").replaceAll("\\+", " "));
+		
+		header.add("Content-Disposition", "attachment; filename=" + fileName);
+		
+		try {
+			result = new ResponseEntity<>(FileCopyUtils.copyToByteArray(file), header, HttpStatus.OK);
+		} catch (IOException e) {
+			e.printStackTrace();
+			result = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		return result;
+		
+	}
+	
+	
+	
 
 }
 

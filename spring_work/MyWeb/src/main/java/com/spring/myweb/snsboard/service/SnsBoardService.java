@@ -39,7 +39,7 @@ public class SnsBoardService implements ISnsBoardService {
 		File folder = new File(uploadPath + fileLoca);
 		if(!folder.exists()) folder.mkdirs();
 		
-		//저장될 파일명은 UUID를 이용한 파일명으로 저장합니다.
+		//저장될 파일명은 UUID를 이용한 파일명으로 저장합니다. 
 		//UUID가 제공하는 랜덤 문자열에 -을 제거해서 전부 사용하겠습니다.
 		String fileRealName = file.getOriginalFilename();
 		
@@ -60,7 +60,6 @@ public class SnsBoardService implements ISnsBoardService {
 		
 		//업로드한 파일을 지정한 로컬 경로로 전송
 		File saveFile = new File(uploadPath + fileLoca + "/" + fileName);
-		
 		try {
 			file.transferTo(saveFile);
 		} catch (Exception e) {
@@ -73,7 +72,6 @@ public class SnsBoardService implements ISnsBoardService {
 		vo.setFileRealName(fileRealName);
 		
 		mapper.insert(vo);
-
 	}
 
 	@Override
@@ -83,14 +81,25 @@ public class SnsBoardService implements ISnsBoardService {
 
 	@Override
 	public SnsBoardVO getDetail(int bno) {
-		// TODO Auto-generated method stub
-		return null;
+		return mapper.getDetail(bno);
 	}
 
 	@Override
 	public void delete(int bno) {
-		// TODO Auto-generated method stub
-
+		mapper.delete(bno);
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

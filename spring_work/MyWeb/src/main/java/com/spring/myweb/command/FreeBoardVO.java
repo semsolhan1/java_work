@@ -29,7 +29,7 @@ public class FreeBoardVO {
 	private LocalDateTime regDate;
 	private LocalDateTime updateDate;
 	
-	//하나의 게시물이 몇개의 댓글을 포함하는가에 대한 값.
+	//하나의 게시물이 몇 개의 댓글을 포함하는가에 대한 값.
 	private int replyCnt;
 
 }

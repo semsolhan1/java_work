@@ -7,21 +7,19 @@
 
 	<!-- namespace 탭에서 mvc 기능 추가 -->
 	<!-- web.xml에 초기 설정 파일로 이 파일을 추가 -->
-
-	<bean id="userLoginSuccessHandler"
-		class="com.spring.myweb.util.interceptor.UserLoginSuccessHandler" />
-	<bean id="userAuth"
-		class="com.spring.myweb.util.interceptor.UserAuthHandler" />
-
-
+	
+	<bean id="userLoginSuccessHandler" class="com.spring.myweb.util.interceptor.UserLoginSuccessHandler" />
+	<bean id="userAuth" class="com.spring.myweb.util.interceptor.UserAuthHandler" />
+	
+	
 	<mvc:interceptors>
-
+	
 		<!-- 로그인 이후에 실행되는 postHandler를 어떤 url에 동작하게 할 지 세팅 -->
 		<mvc:interceptor>
 			<mvc:mapping path="/user/userLogin" />
 			<ref bean="userLoginSuccessHandler" />
 		</mvc:interceptor>
-
+		
 		<!-- 로그인 권한 체크 인터셉터 url 매핑 -->
 		<mvc:interceptor>
 			<mvc:mapping path="/freeboard/regist" />
@@ -29,7 +27,7 @@
 			<!-- <mvc:mapping path="/freeboard/content/**" /> -->
 			<ref bean="userAuth" />
 		</mvc:interceptor>
-
+	
 	</mvc:interceptors>
 
 

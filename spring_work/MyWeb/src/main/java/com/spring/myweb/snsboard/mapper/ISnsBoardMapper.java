@@ -19,5 +19,18 @@ public interface ISnsBoardMapper {
 	//삭제
 	void delete(int bno);
 	
-	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
