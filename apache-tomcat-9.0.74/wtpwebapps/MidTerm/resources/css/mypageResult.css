@@ -1,0 +1,189 @@
+@charset "UTF-8";
+
+#main-con{
+	box-sizing: border-box;
+	width: 100%;
+	height: 85vh;
+	margin-top: 80px;
+	
+	display: flex;	
+	flex-direction: row;
+
+}
+#main-left{
+	box-sizing: border-box;
+	flex-grow: 1;
+	height: 85vh;
+	border-right: 1px solid gainsboro;
+
+}
+#main{
+	box-sizing: border-box;
+	flex-basis: 1200px;
+	height: 85vh;
+	
+	display : flex;
+	flex-wrap: wrap;
+	overflow: scroll;
+		
+}
+#main::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+
+#main-right{
+	box-sizing: border-box;
+	flex-grow: 1;
+	height: 85vh;
+	border-left: 1px solid gainsboro;
+
+}
+
+
+.boxbox{
+	box-sizing: border-box;
+	color : red;
+	width : 33.3%;
+	height: 300px;	
+	border: 1px solid red;
+	border-radius :30px;
+	
+}
+
+aside {
+	
+	width: 100%;
+	height: 93vh;
+	box-sizing: border-box;
+	border-radius: 20px;
+	border: 1px solid green;
+}
+
+.offcanvas-header{
+	padding-top: 30px;
+}
+
+#logo {
+	box-sizing: border-box;
+	width: 100%;
+	height: 10vh;
+	/* border: 1px solid green; */
+}
+
+#profile-img-con {
+	box-sizing: border-box;
+	width: 100%;
+	height: 20vh;
+	/* border: 1px solid red; */
+	line-height: 20vh;
+	position: relative;
+}
+
+#profile-img {
+	box-sizing: border-box;
+	width: 190px;
+	height: 190px;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.profileWrapper {
+	box-sizing: border-box;
+	width: 100%;
+	height: 60vh;
+	/* border: 1px solid red; */
+	padding: 40px;
+	padding-left: 60px;
+	position: relative;
+}
+
+#promodify {	
+	width: 100px;
+	height: 30px;
+	font-size: 15px;
+	text-align: center;
+	line-height: 30px;
+
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+	border-radius:5px;
+	background: gainsboro;
+	box-sizing: border-box;
+	position:absolute;
+	top:55px;
+	left: 200px;
+}
+
+h5{
+	color: darkgrey;
+}
+.modal-body{
+	box-sizing: border-box;
+	width: 100%;
+	height:900px;
+	border: 1px solid red;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.modal-img{
+	box-sizing: border-box;
+	width: 65%;
+	height: 850px;
+	
+	 display: flex;
+  
+  /*위에서 아래로 수직 배치*/
+  flex-direction: column;
+  
+  /*중앙정렬*/
+  justify-content: center;
+	
+}
+
+.modal-text{
+	box-sizing: border-box;
+	width: 30%;
+	height: 850px;
+	border: 1px solid green;
+	border-radius: 30px;
+	margin-left: 10px;
+}
+
+#profile-img2{
+	box-sizing: border-box;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	margin-top :10px;
+	margin-left :10px;
+	
+	padding: 10px;
+	
+}
+
+#freeuserimg{
+	display :flex;
+	width: 100%;
+	height: 100px;
+	border-bottom: 1px solid gainsboro;
+}
+
+#freeuserid{
+	padding-top: 35px;
+	font-size: 30px;	
+}
+
+#freecontent{
+	padding: 10px;
+	
+}
+
+
+
+

@@ -22,6 +22,8 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
 				/WEB-INF/config/servlet-config.xml
+				/WEB-INF/config/email-config.xml
+				/WEB-INF/config/interceptor-config.xml
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
@@ -31,7 +33,7 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
+	
 	<!-- 스프링 한글처리 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -47,11 +49,10 @@
 			<param-value>true</param-value>
 		</init-param>
 	</filter>
-	
 	<!-- 위에 지정한 encodingFilter이름을 모든 패턴에 적용 -->
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+
 </web-app>

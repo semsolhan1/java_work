@@ -5,6 +5,8 @@
 
 <head>
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
 	<style type="text/css">
 		section {
 			margin-top: 70px;
@@ -371,6 +373,7 @@
 		let str = '';
 		let page = 1;
 		let isFinish = false;
+		let isLoading = false;
 
 		const $contentDiv = document.getElementById('contentDiv');
 		getList(1, true);
@@ -380,6 +383,9 @@
 			console.log('page: ' + page);
 			console.log('reset: ' + reset);
 
+			if(isLoading) return;
+
+			isLoading = true;
 			fetch('${pageContext.request.contextPath}/snsboard/' + page)
 				.then(res => res.json())
 				.then(list => {
@@ -434,7 +440,7 @@
 						document.getElementById('contentDiv').insertAdjacentHTML('afterbegin', str);
 					}
 
-
+					isLoading = false;
 				}); //end fetch
 
 		} //end getList()
@@ -514,7 +520,20 @@
 		});	
 
 		
+		const handleScroll = _.throttle(() => {
+			console.log('throttle activate!');
+			const scrollPosition = window.pageYOffset;
+			const height = document.body.offsetHeight;
+			const windowHeight = window.innerHeight;
 
+			if(!isFinish) {
+				if(scrollPosition + windowHeight >= height*0.9) {
+				console.log('next Page call!');
+				getList(++page, false);
+			}
+			}
+
+		}, 1000);
 
 
 
@@ -525,24 +544,27 @@
 		스크롤을 비효율적으로 많이 움직여야 할 수도 있습니다.
 		서비스 하는 형식에 맞는 페이징 방식을 적용하면 됩니다.
 		*/
-		window.onscroll = function () {
-			if (!isFinish) {
-				/*
-				윈도우(device)의 높이와 현재 스크롤 위치 값을 더한 뒤,
-				문서(컨텐츠)의 높이와 비교해서 같아졌다면 로직을 수행.
-				문서 높이 - 브라우저 창 높이 = 스크롤 창의 끝 높이와 같다면 -> 새로운 내용 불러오기!
-				*/
-				if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-						//사용자의 스크롤이 바닥에 닿았을 때, 페이지 변수의 값을 하나 올리고
-						//reset여부는 false를 주셔서 누적해서 계속 불러오시면 되겠습니다.
-						//게시글을 한 번에 몇 개씩 불러 올지는 PageVO의 cpp를 조정하시면 됩니다.
-						console.log('페이징 발동!');
-						getList(++page, false);
-				}
-			} else {
-				console.log('더 이상 불러올 목록이 없어요!');
-			}
-		}
+		window.addEventListener('scroll', handleScroll);
+		
+		// {
+		// 	if (!isFinish) {
+		// 		/*
+		// 		윈도우(device)의 높이와 현재 스크롤 위치 값을 더한 뒤,
+		// 		문서(컨텐츠)의 높이와 비교해서 같아졌다면 로직을 수행.
+		// 		문서 높이 - 브라우저 창 높이 = 스크롤 창의 끝 높이와 같다면 -> 새로운 내용 불러오기!
+				
+		// 		if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+		// 				//사용자의 스크롤이 바닥에 닿았을 때, 페이지 변수의 값을 하나 올리고
+		// 				//reset여부는 false를 주셔서 누적해서 계속 불러오시면 되겠습니다.
+		// 				//게시글을 한 번에 몇 개씩 불러 올지는 PageVO의 cpp를 조정하시면 됩니다.
+		// 				console.log('페이징 발동!');
+		// 				getList(++page, false);
+		// 		}
+		// 		*/
+		// 	} else {
+		// 		console.log('더 이상 불러올 목록이 없어요!');
+		// 	}
+		// }
 
 
 

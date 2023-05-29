@@ -1,141 +1,152 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-    <%@ include file ="include/header.jsp" %>
-    
-    <section>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12 slide-list">
-                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
-                        </ol>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<html lang="en">
 
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <a href="###">
-                                <img src="${pageContext.request.contextPath}/img/slide1.jpg" alt="슬라이드1">
-                                </a>
-                            </div>
-                            <div class="item">
-                                <a href="##">
-                                <img src="${pageContext.request.contextPath}/img/slide2.jpg" alt="슬라이드2">
-                                </a>
-                            </div>
-                            <div class="item">
-                                <a href="##">
-                                <img src="${pageContext.request.contextPath}/img/slide3.jpg" alt="슬라이드3">
-                                </a>
-                            </div>
-                        </div>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>시작화면</title>
 
-                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--슬라이드 끝-->
-        
-    </section>
+<!-- reset.css -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
 
-    
-    <!--본문 -->
-    <section>
+<!-- custom css -->
+<!--    <link rel="stylesheet" href="./home.css">-->
 
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <h2>상품 그리드 레이아웃 <small>(쿠팡참조)</small></h2>
-                </div>
-            </div>
-            <div class="row">
-                <!--xs사이즈에서는 12칸을 다잡는다. (1개씩보임)-->
-                <ul class="col-xs-12 prod-list">
-                    <!--sm사이즈에서는 6칸을 잡는다 (2개씩보임)-->
-                    <li class="col-sm-6">
-                        <a href="##" class="prod-link">
-                            <img src="${pageContext.request.contextPath}/img/box1.jpg">
-                            <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
-                            <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
-                        </a>
-                    </li>
-                    <li class="col-sm-6">
-                        <a href="##" class="prod-link">
-                            <img src="${pageContext.request.contextPath}/img/box2.jpg">
-                            <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
-                            <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
-                        </a>
-                    </li>
+<style>
+.wrapper {
+	box-sizing: border-box;
+	width: 50%;
+	height: 75vh;
+	border: 1px solid blue;
+	margin: 0 auto;
+}
 
-                    <li class="col-md-3 col-sm-6">
-                        <a href="##" class="prod-link">
-                            <img src="${pageContext.request.contextPath}/img/box3.jpg">
-                            <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
-                            <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
-                        </a>
-                    </li>
-                    <li class="col-md-3 col-sm-6">
-                        <a href="##" class="prod-link">
-                            <img src="${pageContext.request.contextPath}/img/box4.jpg">
-                            <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
-                            <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
-                        </a>
-                    </li>
-                    <li class="col-md-3 col-sm-6">
-                        <a href="##" class="prod-link">
-                            <img src="${pageContext.request.contextPath}/img/box5.jpg">
-                            <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
-                            <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
-                        </a>
-                    </li>
-                    <li class="col-md-3 col-sm-6">
-                        <a href="##" class="prod-link">
-                            <img src="${pageContext.request.contextPath}/img/box6.jpg">
-                            <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
-                            <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
-                        </a>
-                    </li>
+.wrapper .title {
+	margin: 0 auto;
+	margin-top: 100px;
+	width: 100%;
+	height: 300px;
+	border: 1px solid red;
+	text-align: center;
+	font-size: 100px;
+	line-height: 300px;
+}
 
-                    <li class="col-md-6 col-sm-12">
-                        <a href="##" class="prod-link">
-                            <img src="${pageContext.request.contextPath}/img/box7.jpg">
-                            <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
-                            <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
-                        </a>
-                    </li>
-                    <!--md사이즈에서 (4개씩), sm사이즈에서 (2개씩) -->
-                    <li class="col-md-3 col-sm-6">
-                        <a href="##" class="prod-link">
-                            <img src="${pageContext.request.contextPath}/img/box8.jpg">
-                            <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
-                            <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
-                        </a>
-                    </li>
-                    <li class="col-md-3 col-sm-6">
-                        <a href="##" class="prod-link">
-                            <img src="${pageContext.request.contextPath}/img/box9.jpg">
-                            <span class="arrow"><i class="glyphicon glyphicon-menu-right"></i></span>
-                            <span class="arrow hover">상세보기<i class="glyphicon glyphicon-menu-right"></i></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    
-    <%@ include file="include/footer.jsp" %>
-    
-    
-    
+.wrapper .selectWrapper {
+	width: 100%;
+	height: 100px;
+	margin-top: 20px;
+	border: 1px solid red;
+	display: flex;
+	justify-content: space-between;
+}
+
+select {
+	box-sizing: border-box;
+	width: 33%;
+	height: 100px;
+	font-size: 30px;
+	text-align: center;
+	border-radius: 10px;
+}
+
+button {
+	display: block;
+	width: 30%;
+	font-size: 30px;
+	height: 60px;
+	border-radius: 10px;
+	margin: 40px auto;
+}
+
+header {
+	box-sizing: border-box;
+	width: 100%;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	height: 10vh;
+	border: 1px solid green;
+	padding-right: 30px;
+}
+
+header div {
+	font-size: 30px;
+	width: 10%;
+	height: 40px;
+	border: 1px solid red;
+	text-align: center;
+	margin: 10px;
+}
+
+footer {
+	box-sizing: border-box;
+	width: 100%;
+	height: 15vh;
+	/* footer의 높이 */
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	border: 1px solid green;
+	text-align: center;
+	line-height: 150px;
+}
+
+a {
+	text-decoration: none;
+}
+</style>
+</head>
+<body>
+	<header>
+		<c:if test="${login == null}">
+			<div>
+				<a href="${pageContext.request.contextPath}/user/userLogin">login</a>
+			</div>
+			<div>
+				<a href="${pageContext.request.contextPath}/user/userJoin">Join</a>
+			</div>
+		</c:if>
+		<c:if test="${login != null}">
+			${login.userId}님 환영합니다!
+			<div><a href="${pageContext.request.contextPath}/user/userMypage">MyPage</a></div>
+			<div><a href="${pageContext.request.contextPath}/user/userLogout">Logout</a></div>
+		</c:if>
+
+	</header>
+	<div class="wrapper">
+		<div class="title">Tasty Friends</div>
+		<form action="${pageContext.request.contextPath}/result/mainResult"
+			method="POST">
+			<div class="selectWrapper">
+				<select name="weather">
+					<option value="날씨" selected>날씨</option>
+					<option value="맑음">맑음</option>
+					<option value="흐림">흐림</option>
+					<option value="비">비</option>
+					<option value="오늘의날씨">오늘의날씨</option>
+				</select> <select name="condition">
+					<option value="상태" selected>상태</option>
+					<option value="보통">보통</option>
+					<option value="다이어트중">다이어트중</option>
+					<option value="술마시고싶어요">술마시고싶어요</option>
+
+				</select> <select name="feeling">
+					<option value="기분" selected>기분</option>
+					<option value="신나요">신나요</option>
+					<option value="우울해요">우울해요</option>
+					<option value="피곤해요">피곤해요</option>
+					<option value="특별한날">특별한날</option>
+				</select>
+			</div>
+			<button type="submit">레시피 추천!</button>
+		</form>
+	</div>
+	<footer> copyright © TastyFriends. all rights reserved </footer>
+</body>
+
+</html>

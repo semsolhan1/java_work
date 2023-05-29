@@ -1,16 +1,21 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
 
-	<%@ include file="../include/header.jsp" %>
-
-    <section>
+<section>
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-7 col-xs-10 login-form">
                     <div class="titlebox">
                         로그인
                     </div>
-                    <form method="post" name="loginForm">
+                   <form method="post" name="loginForm">
                         <div class="form-group"><!--사용자클래스선언-->
                             <label for="id">아이디</label>
                             <input type="text" name="userId" class="form-control" id="id" placeholder="아이디">
@@ -22,16 +27,14 @@
                          <div class="form-group">
                             <button type="button" id="loginBtn" class="btn btn-info btn-block">로그인</button>
                             <button type="button" id="joinBtn" class="btn btn-primary btn-block">회원가입</button>
-                         </div>
+                         </div>                                  
                     </form>                
                 </div>
             </div>
         </div>
     </section>
-    
-    <%@ include file="../include/footer.jsp" %>
-    
-    <script>
+
+	<script>
     	
     	//회원 가입 완료 후 addFlashAttribute로 msg 데이터가 전달 되는 지 확인
     	const msg = '${msg}';
@@ -62,19 +65,5 @@
     	
     
     </script>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+</body>
+</html>

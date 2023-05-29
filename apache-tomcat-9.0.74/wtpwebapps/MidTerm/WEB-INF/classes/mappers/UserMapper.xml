@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.midterm.foodSNS.user.mapper.IUserMapper">
+
+	<resultMap type="user" id="userMap">
+		<result property="userName" column="user_name" />
+		<result property="userPhone1" column="user_phone1" />
+		<result property="userPhone2" column="user_phone2" />
+		<result property="userEmail1" column="user_email1" />
+		<result property="userEmail2" column="user_email2" />
+		<result property="addrBasic" column="addr_basic" />
+		<result property="addrDetail" column="addr_detail" />
+		<result property="addrZipNum" column="addr_zip_num" />
+		<collection property="userBoardList" resultMap="list" />
+	</resultMap>
+
+
+
+	<insert id="join">
+		INSERT INTO Musers
+		(user_id, user_pw, user_phone1, user_phone2, user_email1,
+		user_email2, addr_basic, addr_detail, addr_zip_num)
+		VALUES(#{userId}, #{userPw}, #{userPhone1}, #{userPhone2}, #{userEmail1},
+		#{userEmail2}, #{addrBasic}, #{addrDetail}, #{addrZipNum})
+	</insert>
+
+
+	<select id="idCheck" resultType="int">
+		SELECT count(*) FROM Musers
+		WHERE user_id = #{id}
+	</select>
+
+	<select id="login" resultType="string">
+		SELECT user_pw FROM Musers
+		WHERE
+		user_id = #{id}
+	</select>
+
+	<select id="getInfo" resultMap="userMap">
+		SELECT
+		user_name, user_phone1, user_phone2,
+		user_email1, user_email2, addr_basic,
+		addr_detail, addr_zip_num,
+		f.bno,
+		f.title,
+		f.reg_date
+		FROM users u
+		LEFT JOIN freeboard f
+		ON u.user_id = f.writer
+		WHERE
+		u.user_id = #{id}
+		ORDER BY f.bno DESC
+		LIMIT #{paging.pageStart},
+		#{paging.cpp};
+	</select>
+	
+	<select id="userInfo" resultType="user">
+		SELECT * FROM Musers
+		WHERE user_id = #{id}
+	</select>
+
+
+	<update id="profilemodify">
+		UPDATE Musers
+		SET upload_path = #{uploadPath},
+		file_loca = #{fileLoca},
+		file_name = #{fileName},
+		file_real_name = #{fileRealName},
+		user_nick=#{userNick},
+		message=#{message}		
+		WHERE user_id = #{userId}	
+	</update>
+
+
+
+</mapper>
