@@ -6,7 +6,7 @@
 <head>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
-
+	
 	<style type="text/css">
 		section {
 			margin-top: 70px;
@@ -516,9 +516,16 @@
 					getList(1, true); //삭제가 반영된 새로운 글 목록 보여주기.
 				}
 			});
-
+			
 		});	
-
+		
+		/* 
+		쓰로틀링 - 일정한 간격으로 함수를 실행.
+		쓰로틀링은 사용자가 이벤트를 몇 번이나 발생시키든, 일정한 간격으로
+		한 번만 실행하도록 하는 기법입니다.
+		마우스 움직임, 스크롤 이벤트 같은 짧은 주기로 자주 발생하는 경우에
+		사용하는 기법입니다. (lodash 라이브러리를 이용하여 구현)
+		*/
 		
 		const handleScroll = _.throttle(() => {
 			console.log('throttle activate!');
@@ -527,14 +534,20 @@
 			const windowHeight = window.innerHeight;
 
 			if(!isFinish) {
-				if(scrollPosition + windowHeight >= height*0.9) {
-				console.log('next Page call!');
-				getList(++page, false);
-			}
+				if(scrollPosition + windowHeight >= height * 0.9) {
+					console.log('next Page call!');
+					getList(++page, false);
+				}
 			}
 
 		}, 1000);
 
+		window.addEventListener('scroll', handleScroll);
+
+		
+		
+		
+		
 
 
 		/*
@@ -544,8 +557,8 @@
 		스크롤을 비효율적으로 많이 움직여야 할 수도 있습니다.
 		서비스 하는 형식에 맞는 페이징 방식을 적용하면 됩니다.
 		*/
-		window.addEventListener('scroll', handleScroll);
-		
+		// window.addEventListener('scroll', handleScroll);
+		// console.log('스크롤 이벤트 발생!');
 		// {
 		// 	if (!isFinish) {
 		// 		/*
